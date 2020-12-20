@@ -81,12 +81,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar  elevation-4" style=" background-color:#000000;">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link font-weight-bold text-light">
+            <a href="" class="brand-link  text-light">
                 <img src="<?= base_url() . 'assets/images/logo.png' ?>" alt="Aqila Logo"
                     class="brand-image img-circle elevation-3" style="opacity: 17">
-                <span class="brand-text font-weight-bold"> Cv Quilla</span>
-                <hr class="color-light" style="color:blanchedalmond">
-                </hr>
+                <span class="brand-text font-weight-bold"> Cv Quilla</span><br>
+
+
             </a>
 
             <!-- Sidebar -->
@@ -136,15 +136,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="" class="nav-link font-weight-bold text-light">
+                                    <a href="<?= base_url('databarang/kategori') ?>"
+                                        class="nav-link font-weight-bold text-light">
                                         <i class="fas fa-layer-group"></i>
-                                        <p>Kategori barang</p>
+                                        <p>Kategori Barang</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item ">
-                            <a href="<?= base_url('Dashboard') ?>" class="nav-link font-weight-bold text-light">
+                            <a href="<?= base_url('penjualan') ?>" class="nav-link font-weight-bold text-light">
                                 <p>
                                     <i class="fas fa-align-left"></i>
                                     Entry Penjualan
@@ -154,8 +155,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item ">
                             <a href="<?= base_url('Dashboard') ?>" class="nav-link font-weight-bold text-light">
                                 <p>
+                                    <i class="fas fa-file-invoice"></i>
+                                    Laporan
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="<?= base_url('Dashboard') ?>" class="nav-link font-weight-bold text-light">
+                                <p>
                                     <i class="fas fa-cogs"></i>
-                                    pengaturan
+                                    Pengaturan
                                 </p>
                             </a>
                         </li>
@@ -178,14 +187,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="content-wrapper">
             <!-- Main content -->
             <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
 
-                        <?= $contents ?>
 
-                    </div>
-                    <!-- /.row -->
-                </div><!-- /.container-fluid -->
+                <?= $contents ?>
+
+
             </div>
             <!-- /.content -->
         </div>

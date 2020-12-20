@@ -4,12 +4,12 @@
 
         <div class="row pt-3">
             <div class="col-md-3">
-                <h3 class="">Daftar sepatu cv.Quilla</h3>
+                <h3 class="">Kategori sepatu cv.Quilla</h3>
 
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
 
@@ -25,13 +25,7 @@
                                     <th>Nama sepatu</th>
                                     <th>Jenis Sepatu</th>
                                     <th>Merek</th>
-                                    <th>Ukuran</th>
-                                    <th>Warna</th>
-
-                                    <th>Jumlah Stok</th>
-                                    <th>Harga </th>
-
-                                    <th class="text-center" style="width:15%;">
+                                    <th class="text-center" style="">
                                         <i class="fas fa-directions bg-info"></i>
                                         aksi
                                     </th>
@@ -43,12 +37,9 @@
                                     <td>183</td>
                                     <td>John Doe</td>
                                     <td>11-7-2014</td>
+                                    <td>11-7-2014</td>
 
-                                    <td>ffff.</td>
-                                    <td>ffff.</td>
-                                    <td>ffff.</td>
-                                    <td>ffff.</td>
-                                    <td>ffff.</td>
+
                                     <td>
                                         <a href="http://">
                                             <button class="badge bg-danger float-right   "><i
