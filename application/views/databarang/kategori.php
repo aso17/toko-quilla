@@ -4,17 +4,18 @@
 
         <div class="row pt-3">
             <div class="col-md-3">
-                <h3 class="">Kategori sepatu cv.Quilla</h3>
+                <h3 class="">Kategori Barang cv.Quilla</h3>
 
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-warning">
 
-                        <a href="http://"><button class="btn btn-primary"><i class="fas fa-plus">Tambah
-                                    data</i></button></a>
+                        <a href=" <?= base_url('databarang/tambahkategori') ?> "><button class="btn btn-dark"><i
+                                    class="fas fa-plus-square mr-1"> Kategori
+                                    Barang</i></button></a>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
@@ -22,12 +23,12 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama sepatu</th>
-                                    <th>Jenis Sepatu</th>
-                                    <th>Merek</th>
+                                    <th>Kategori Barang</th>
+                                    <th>Satuan</th>
+                                    <th>Tanggal input</th>
+
                                     <th class="text-center" style="">
-                                        <i class="fas fa-directions bg-info"></i>
-                                        aksi
+
                                     </th>
 
                                 </tr>
@@ -42,13 +43,10 @@
 
                                     <td>
                                         <a href="http://">
-                                            <button class="badge bg-danger float-right   "><i
+                                            <button class="badge bg-danger float-right mr-3   "><i
                                                     class="fas fa-trash-alt">hapus</i></button>
                                         </a>
-                                        <a href="http://">
-                                            <button class="badge bg-info float-right mr-3"><i
-                                                    class="fas fa-eye">detail</i></button>
-                                        </a>
+
                                         <a href="http://">
                                             <button class="badge bg-primary float-right mr-3 "><i
                                                     class="fas fa-edit">ubah</i></button>

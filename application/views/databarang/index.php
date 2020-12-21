@@ -11,9 +11,10 @@
         <div class="row mt-3">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-warning">
 
-                        <a href="http://"><button class="btn btn-primary"><i class="fas fa-plus">Tambah
+                        <a href="<?= base_url('databarang/tambah_barang') ?>"><button class="btn btn-dark"><i
+                                    class="fas fa-plus">Tambah
                                     data</i></button></a>
                     </div>
                     <!-- /.card-header -->

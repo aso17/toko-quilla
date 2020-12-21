@@ -217,6 +217,50 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <strong>Copyright &copy; 2014-2019 <a href=" https://adminlte.io">A_so </a>. </strong> All rights reserved.
         </footer>
     </div> <!-- ./wrapper -->
+    <!-- Alert Config -->
+    <script type="text/javascript">
+    function logConfirm(url) {
+        $('#btn-log').attr('href', url);
+        $('#logoutmodal').modal();
+    }
+    </script>
+    <script type="text/javascript">
+    $(function() {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 10000
+        });
+        <?php if ($this->session->flashdata('success')) { ?>
+        Toast.fire({
+            icon: 'success',
+            title: '<?= $this->session->flashdata('success'); ?>'
+        });
+        <?php } else if ($this->session->flashdata('error')) {  ?>
+        Toast.fire({
+            icon: 'error',
+            title: '<?= $this->session->flashdata('error'); ?>'
+        });
+        <?php } else if ($this->session->flashdata('warning')) {  ?>
+        Toast.fire({
+            icon: 'warning',
+            title: '<?= $this->session->flashdata('warning'); ?>'
+        });
+        <?php } else if ($this->session->flashdata('info')) {  ?>
+        Toast.fire({
+            icon: 'info',
+            title: '<?= $this->session->flashdata('info'); ?>'
+        });
+        <?php } ?>
+    });
+
+
+    $('.custom-file-input').on('change', function() {
+        let filename = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').addClass("selected").html(filename);
+    })
+    </script>
 
 
 </body>
