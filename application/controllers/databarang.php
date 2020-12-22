@@ -5,20 +5,43 @@ class databarang extends CI_Controller
     {
         parent::__construct();
         $this->load->model('kategori_m');
+        $this->load->model('barang_m');
     }
     public function index()
     {
-
-        $this->templates->load('layout/template', 'databarang/index');
+        $data['barang'] = $this->barang_m->getAll();
+        $this->templates->load('layout/template', 'databarang/index', $data);
     }
     public function tambah_barang()
     {
-        $this->templates->load('layout/template', 'databarang/tambah_barang');
+        $validation = $this->form_validation;
+        $validation->set_rules('nm_barang', 'Nama barang', 'trim|required');
+        $validation->set_rules('kategori', 'pilih Kategori', 'trim|required');
+        $validation->set_rules('ukuran', 'ukuran', 'trim|required');
+        $validation->set_rules('warna', 'warna', 'trim|required');
+        $validation->set_rules('merk', 'merk', 'trim|required');
+        $validation->set_rules('jml_barang', 'jumlah barang', 'trim|required');
+        $validation->set_rules('harga', 'harga', 'trim|required');
+        $validation->set_rules('tgl_input', 'tanggal input', 'trim|required');
+
+        if ($validation->run() == false) {
+
+
+            $data['kategori'] = $this->kategori_m->getAll();
+            $this->templates->load('layout/template', 'databarang/tambah_barang', $data);
+        } else {
+
+            $this->barang_m->tambah();
+            $this->session->set_flashdata('success', 'barang barang berhasil di tambah');
+            redirect('databarang');
+        }
     }
 
     public function kategori()
     {
-        $this->templates->load('layout/template', 'databarang/kategori');
+        $data['kategori'] = $this->kategori_m->getAll();
+
+        $this->templates->load('layout/template', 'databarang/kategori', $data);
     }
     public function tambahkategori()
     {
@@ -35,7 +58,7 @@ class databarang extends CI_Controller
         } else {
 
             $this->kategori_m->tambah();
-            $this->session->set_flashdata('success', 'Kategori barang');
+            $this->session->set_flashdata('success', 'Kategori barang berhasil di tambah');
             redirect('databarang/kategori');
         }
     }

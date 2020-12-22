@@ -94,7 +94,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="text-center">
                     <div class="brand-image mx-auto">
-                        <img src="<?= base_url() . 'assets/images/user/komenk.jpeg' ?>" class=" mx-auto d-block"
+                        <img src="<?= base_url() . 'assets/images/user/k.jpeg' ?>" class=" mx-auto d-block"
                             alt="User Image" width="100px;" height="100px" style="border-radius: 50%;">
                         <p class="text-info font-weight-bold mt-3 mx-4 ">{12341111111156}</p>
                         <p class="text-info font-weight-bold ">Quilla Mutia kom</p>

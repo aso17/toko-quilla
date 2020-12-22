@@ -1,6 +1,13 @@
 <?php
 class kategori_m extends CI_Model
 {
+    public function getAll()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_kategori');
+        $query = $this->db->get()->result();
+        return $query;
+    }
     public function tambah()
     {
         $post = $this->input->post();
