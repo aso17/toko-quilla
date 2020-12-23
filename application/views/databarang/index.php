@@ -1,10 +1,10 @@
 <!-- Main content -->
 <div class="content">
-    <div class="container-fluid">
+    <div class="container-fluid bg-secondary">
 
         <div class="row pt-3">
             <div class="col-md-5">
-                <h3 class="">Daftar sepatu cv.Quilla</h3>
+                <h3 class="">Daftar Barang cv.Quilla</h3>
 
             </div>
         </div>
@@ -25,7 +25,7 @@
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover text-nowrap" id="barang">
                             <thead>
-                                <tr>
+                                <tr class="text-dark">
                                     <?php $i = 1; ?>
                                     <th>No</th>
                                     <th>Nama barang</th>
@@ -44,7 +44,7 @@
 
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="text-dark">
                                 <?php foreach ($barang as $bar) : ?>
                                 <tr>
                                     <td><?= $i++ ?></td>

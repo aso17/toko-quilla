@@ -108,8 +108,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         data-accordion="false">
                         <li class="nav-item ">
                             <a href="<?= base_url('Dashboard') ?>" class="nav-link font-weight-bold text-light">
-                                <p>
-                                    <i class="nav-icon fa fa-tachometer-alt"></i>
+                                <p><i class="fas fa-palette"></i>
                                     Dashboard
                                 </p>
                             </a>
@@ -117,9 +116,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link font-weight-bold text-light">
+                                <i class="fas fa-angle-left right"></i>
+                                <i class="fas fa-server"></i>
                                 <p>
-                                    <i class="fas fa-angle-left right"></i>
-                                    <i class="fas fa-server"></i>
                                     Master
 
                                 </p>
@@ -228,8 +227,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     $(function() {
         const Toast = Swal.mixin({
             toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
+            // position: 'top-end',
+            showConfirmButton: true,
             timer: 10000
         });
         <?php if ($this->session->flashdata('success')) { ?>

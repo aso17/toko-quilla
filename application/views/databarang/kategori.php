@@ -24,48 +24,26 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
-                        <table class="table table-hover text-nowrap" id="barang">
-                            <thead>
-                                <tr>
-                                    <?php $i = 1; ?>
-                                    <th>No</th>
-                                    <th>Kategori Barang</th>
-                                    <th>Satuan</th>
-                                    <th>Tanggal input</th>
 
-                                    <th class="text-center" style="">
-
-                                    </th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($kategori as $kate) : ?>
-                                <tr>
-                                    <td><?= $i++; ?></td>
-                                    <td><?= $kate->kategori_barang ?></td>
-                                    <td><?= $kate->satuan ?></td>
-                                    <td><?= $kate->tgl_input ?></td>
+                        <?php foreach ($kategori as $kate) : ?>
 
 
+                        <li class="list-group-item ">
+                            <h6 class="text-info ml-4 font-weight-bold"><?= $kate->kategori_barang; ?>
+                                <a href="http://">
+                                    <button class="badge bg-danger float-right mr"><i
+                                            class="fas fa-trash-alt">hapus</i></button>
+                                </a>
+                                <a href="http://">
+                                    <button class="badge bg-primary float-right mr-2 "><i class="fas fa-edit">
+                                            ubah</i></button>
+                                </a>
+                            </h6>
 
-                                    <td>
-                                        <a href="http://">
-                                            <button class="badge bg-danger float-right mr-3   "><i
-                                                    class="fas fa-trash-alt">hapus</i></button>
-                                        </a>
+                        </li>
 
-                                        <a href="http://">
-                                            <button class="badge bg-primary float-right mr-3 "><i
-                                                    class="fas fa-edit">ubah</i></button>
-                                        </a>
-                                    </td>
-                                </tr>
+                        <?php endforeach; ?>
 
-                                <?php endforeach; ?>
-
-                            </tbody>
-                        </table>
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -76,18 +54,5 @@
         <!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>
-<script>
-$(function() {
 
-    $("#barang").DataTable({
-        "responsive": true,
-        "autoWidth": true,
-        "info": true,
-        "lengthChange": false,
-
-        "paging": true,
-
-    });
-});
-</script>
 <!-- /.content -->

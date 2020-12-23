@@ -32,7 +32,7 @@ class databarang extends CI_Controller
         } else {
 
             $this->barang_m->tambah();
-            $this->session->set_flashdata('success', 'barang barang berhasil di tambah');
+            $this->session->set_flashdata('success', 'Data barang berhasil di tambah');
             redirect('databarang');
         }
     }
