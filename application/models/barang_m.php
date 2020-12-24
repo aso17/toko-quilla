@@ -32,4 +32,8 @@ class barang_m extends CI_Model
         ];
         $this->db->insert('tb_barang', $data);
     }
+    public function hapus($id_barang)
+    {
+        return $this->db->delete('tb_barang', ['id_barang' => $id_barang]);
+    }
 }

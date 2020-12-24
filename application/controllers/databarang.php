@@ -62,4 +62,10 @@ class databarang extends CI_Controller
             redirect('databarang/kategori');
         }
     }
+    public function delete($id_barang)
+    {
+        $this->barang_m->hapus($id_barang);
+        $this->session->set_flashdata('success', 'Data Barang berhasil di hapus');
+        redirect('databarang');
+    }
 }

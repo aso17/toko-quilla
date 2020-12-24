@@ -1,6 +1,6 @@
 <!-- Main content -->
 <div class="content">
-    <div class="container-fluid">
+    <div class="container-fluid bg-secondary">
 
         <div class="row pt-3">
             <div class="col-md-5">
@@ -9,9 +9,9 @@
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col-md-10">
-                <div class="card">
-                    <div class="card-header bg-warning">
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header">
 
                         <a href=" <?= base_url('databarang/tambahkategori') ?> ">
                             <button type="submit" name="submit" class="btn btn-outline-info"><i
@@ -21,21 +21,27 @@
                             </button>
 
                         </a>
+                        <tr>
+                        </tr>
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body table-responsive p-0">
 
+                    <div class="card-body table-responsive  text-dark">
+
+
+                        <?php $i = "A"; ?>
                         <?php foreach ($kategori as $kate) : ?>
 
 
                         <li class="list-group-item ">
-                            <h6 class="text-info ml-4 font-weight-bold"><?= $kate->kategori_barang; ?>
+                            <h6 class="text-info ml-4 font-weight-bold">
+                                <h6><?= $i++ ?>.</h6> <?= $kate->kategori_barang; ?>
+                                <button class="btn btn-outline-danger btn-sm float-right "
+                                    onclick="deleteConfirm('<?= base_url() . 'databarang/delete/' . $kate->id_kategori ?>')"><i
+                                        class="fa fa-trash-alt">hapus</i></button>
                                 <a href="http://">
-                                    <button class="badge bg-danger float-right mr"><i
-                                            class="fas fa-trash-alt">hapus</i></button>
-                                </a>
-                                <a href="http://">
-                                    <button class="badge bg-primary float-right mr-2 "><i class="fas fa-edit">
+                                    <button class="btn btn-outline-info btn-sm float-right mr-2 "><i
+                                            class="fas fa-edit">
                                             ubah</i></button>
                                 </a>
                             </h6>
@@ -54,5 +60,38 @@
         <!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-3 d-flex justify-content-center">
+                        <i class="fa  fa-exclamation" style="font-size: 70px; color:red;"></i>
+                    </div>
+                    <div class="col-9 pt-2">
+                        <h5>Apakah anda yakin?</h5>
 
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" type="button" data-dismiss="modal"> Batal</button>
+                <a id="btn-delete" class="btn btn-danger" href="#"> Hapus</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirm -->
+<script type="text/javascript">
+function deleteConfirm(url) {
+    $('#btn-delete').attr('href', url);
+    $('#deleteModal').modal();
+}
+</script>
 <!-- /.content -->
+<script>
+<!-- /.content 
+-->

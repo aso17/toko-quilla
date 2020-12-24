@@ -5,4 +5,9 @@ class Penjualan extends CI_Controller
     {
         $this->templates->load('layout/template', 'penjualan/index');
     }
+
+    public function transaksi()
+    {
+        $this->templates->load('layout/template', 'penjualan/transaksi');
+    }
 }

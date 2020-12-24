@@ -96,8 +96,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="brand-image mx-auto">
                         <img src="<?= base_url() . 'assets/images/user/k.jpeg' ?>" class=" mx-auto d-block"
                             alt="User Image" width="100px;" height="100px" style="border-radius: 50%;">
-                        <p class="text-info font-weight-bold mt-3 mx-4 ">{12341111111156}</p>
-                        <p class="text-info font-weight-bold ">Quilla Mutia kom</p>
+                        <p class="text-light font-weight-bold mt-3 mx-4 ">{12341111111156}</p>
+                        <p class="text-light font-weight-bold ">komenk</p>
                     </div>
 
                 </div>
@@ -108,7 +108,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         data-accordion="false">
                         <li class="nav-item ">
                             <a href="<?= base_url('Dashboard') ?>" class="nav-link font-weight-bold text-light">
-                                <p><i class="fas fa-palette"></i>
+                                <p><i class="fas fa-palette text-info"></i>
                                     Dashboard
                                 </p>
                             </a>
@@ -117,7 +117,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link font-weight-bold text-light">
                                 <i class="fas fa-angle-left right"></i>
-                                <i class="fas fa-server"></i>
+                                <i class="fas fa-pager text-info"></i>
                                 <p>
                                     Master
 
@@ -127,7 +127,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li class="nav-item">
                                     <a href="<?= base_url('databarang') ?>"
                                         class="nav-link font-weight-bold text-light">
-                                        <i class="fas fa-table"></i>
+                                        <i class="fas fa-table text-info"></i>
                                         <p>
                                             Data Barang
 
@@ -137,8 +137,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li class="nav-item">
                                     <a href="<?= base_url('databarang/kategori') ?>"
                                         class="nav-link font-weight-bold text-light">
-                                        <i class="fas fa-layer-group"></i>
+                                        <i class="fas fa-layer-group text-info"></i>
                                         <p>Kategori Barang</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('users') ?>" class="nav-link font-weight-bold text-light">
+                                        <i class="fas fa-user-tag text-info"></i>
+                                        <p>User</p>
                                     </a>
                                 </li>
                             </ul>
@@ -146,7 +152,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item ">
                             <a href="<?= base_url('penjualan') ?>" class="nav-link font-weight-bold text-light">
                                 <p>
-                                    <i class="fas fa-align-left"></i>
+                                    <i class="fas fa-align-left text-info"></i>
                                     Entry Penjualan
                                 </p>
                             </a>
@@ -154,7 +160,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item ">
                             <a href="<?= base_url('Dashboard') ?>" class="nav-link font-weight-bold text-light">
                                 <p>
-                                    <i class="fas fa-file-invoice"></i>
+                                    <i class="fas fa-file-invoice text-info"></i>
                                     Laporan
                                 </p>
                             </a>
@@ -162,7 +168,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item ">
                             <a href="<?= base_url('Dashboard') ?>" class="nav-link font-weight-bold text-light">
                                 <p>
-                                    <i class="fas fa-cogs"></i>
+                                    <i class="fas fa-cogs text-info"></i>
                                     Pengaturan
                                 </p>
                             </a>

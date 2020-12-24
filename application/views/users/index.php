@@ -4,7 +4,7 @@
 
         <div class="row pt-3">
             <div class="col-md-5">
-                <h3 class="">Daftar Barang cv.Quilla</h3>
+                <h3 class="">Daftar Users</h3>
 
             </div>
         </div>
@@ -13,70 +13,46 @@
                 <div class="card">
                     <div class="card-header">
 
-                        <a href=" <?= base_url('databarang/tambah_barang') ?> ">
+                        <a href=" <?= base_url('Users/tambah') ?> ">
                             <button type="submit" name="submit" class="btn btn-outline-info"><i
                                     class="fas fa-plus-square mr-1 "></i>
-                                <span class="text-dark font-weight-bold">Data Barang</span>
+                                <span class="text-dark font-weight-bold">Users</span>
                             </button>
 
                         </a>
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body table-responsive p-0">
-                        <table class="table table-hover text-nowrap" id="barang">
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover text-nowrap" id="users">
                             <thead>
                                 <tr class="text-dark">
                                     <?php $i = 1; ?>
                                     <th>No</th>
-                                    <th>Nama barang</th>
-                                    <th>kategori</th>
-                                    <th>Merk</th>
-                                    <th>Ukuran</th>
-                                    <th>Warna</th>
-                                    <th>Stok</th>
-
-                                    <th>Harga </th>
-
-                                    <th class="text-center" style="">
-                                        <i class="fas fa-directions bg-info"></i>
-                                        aksi
-                                    </th>
+                                    <th>Username</th>
+                                    <th>NIk</th>
+                                    <th class="text-center">foto</th>
+                                    <th>role</th>
 
                                 </tr>
                             </thead>
                             <tbody class="text-dark">
-                                <?php foreach ($barang as $bar) : ?>
+                                <?php foreach ($users as $us) : ?>
                                 <tr>
-                                    <td><?= $i++ ?>.</td>
-                                    <td><?= $bar->nama_barang ?></td>
-                                    <td><?= $bar->kategori_barang ?></td>
+                                    <td><?= $i++; ?></td>
+                                    <td><?= $us->username; ?></td>
+                                    <td><?= $us->nik_ktp; ?></td>
 
-                                    <td><?= $bar->merk ?></td>
-                                    <td><?= $bar->ukuran ?></td>
-                                    <td><?= $bar->warna ?></td>
-
-                                    <td><?= $bar->jml_barang ?></td>
-
-                                    <td>Rp.<?= number_format($bar->harga_jual, 2, ',', '.') ?></td>
-
-                                    <td>
-                                        <button class="btn btn-outline-danger btn-sm float-right "
-                                            onclick="deleteConfirm('<?= base_url() . 'databarang/delete/' . $bar->id_barang ?>')"><i
-                                                class="fa fa-trash-alt">hapus</i></button>
-                                        <a href="http://">
-                                            <button class="btn btn-outline-info btn-sm float-right mr-1"><i
-                                                    class="fas fa-eye">
-                                                    detail</i></button>
-                                        </a>
-                                        <a href="http://">
-                                            <button class="btn btn-outline-primary btn-sm float-right mr-1 "><i
-                                                    class="fas fa-edit">
-                                                    ubah</i></button>
-                                        </a>
+                                    <td><img src="<?= base_url() . 'assets/images/user/' . $us->image; ?>" alt="users"
+                                            width="70px" height="70px" class="rounded mx-auto d-block">
                                     </td>
+
+                                    <td><?= $us->role; ?></td>
 
                                 </tr>
                                 <?php endforeach; ?>
+
+
+
 
                             </tbody>
                         </table>
@@ -127,13 +103,13 @@ function deleteConfirm(url) {
 <script>
 $(function() {
 
-    $("#barang").DataTable({
+    $("#users").DataTable({
         "responsive": true,
         "autoWidth": false,
         "info": true,
         "lengthChange": false,
 
-        "paging": true,
+        "paging": false,
 
     });
 });
