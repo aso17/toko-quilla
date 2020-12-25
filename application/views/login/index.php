@@ -37,14 +37,14 @@
 
 
         <!-- /.login-logo -->
-        <div class="card bg-dark border border-danger shadow bg-danger rounded">
+        <div class="card bg-dark shadow bg-danger rounded">
             <div class="login-logo ">
                 <img src="<?= base_url() . 'assets/images/logo.png' ?>" alt="Aqila Logo"
                     class="brand-image img-circle elevation-3 m-3  float-left" style="opacity: 17" width="70px">
-                <span class="brand-text font-weight-bold m-3 pr-3 float-left">CV.Quilla</span>
+                <span class="brand-text font-weight-bold m-3 pr-3 float-left">Toko.Quilla</span>
             </div>
             <div class="card-body login-card-body bg-dark">
-                <h4 class=" font-weight-bold text-center text-info">Login</h4>
+                <h4 class=" font-weight-bold text-center text-info pb-2">Login</h4>
 
 
                 <form action="" method="post">

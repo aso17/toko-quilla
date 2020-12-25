@@ -84,7 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="" class="brand-link  text-light">
                 <img src="<?= base_url() . 'assets/images/logo.png' ?>" alt="Aqila Logo"
                     class="brand-image img-circle elevation-3" style="opacity: 17">
-                <span class="brand-text font-weight-bold"> Cv Quilla</span><br>
+                <span class="brand-text font-weight-bold">Toko.Quilla</span><br>
 
 
             </a>
@@ -94,10 +94,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="text-center">
                     <div class="brand-image mx-auto">
-                        <img src="<?= base_url() . 'assets/images/user/k.jpeg' ?>" class=" mx-auto d-block"
-                            alt="User Image" width="100px;" height="100px" style="border-radius: 50%;">
-                        <p class="text-light font-weight-bold mt-3 mx-4 ">Komenk back</p>
-                        <p class="text-light font-weight-bold ">Kasir</p>
+                        <img src="<?= base_url() . 'assets/images/user/' . $this->session->userdata('image') ?>"
+                            class=" mx-auto d-block" alt="User Image" width="100px;" height="100px"
+                            style="border-radius: 50%;">
+                        <p class="text-light font-weight-bold mt-3 mx-4 ">
+                            <?= $this->session->userdata('nama_lengkap') ?></p>
+                        <p class="text-light font-weight-bold "><?= $this->session->userdata('role') ?></p>
                     </div>
 
                 </div>
@@ -174,7 +176,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a href="<?= base_url('Dashboard') ?>" class="nav-link font-weight-bold text-danger">
+                            <a href="<?= base_url('loginPortal/logout') ?>"
+                                class="nav-link font-weight-bold text-danger">
                                 <p>
                                     <i class="fas fa-sign-out-alt "></i>
                                     Logout

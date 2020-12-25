@@ -42,4 +42,13 @@ class loginPortal extends CI_Controller
             }
         }
     }
+    public function logout()
+    {
+        $this->session->unset_userdata('username');
+        $this->session->unset_userdata('role');
+        $this->session->unset_userdata('nama_lengkap');
+        $this->session->unset_userdata('id_user');
+        $this->session->unset_userdata('image');
+        redirect('loginPortal');
+    }
 }
