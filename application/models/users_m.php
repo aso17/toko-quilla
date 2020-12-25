@@ -40,4 +40,13 @@ class users_m extends CI_Model
 
         $this->db->insert('tb_user', $this);
     }
+
+    public function get_input_post($username)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_user');
+        $this->db->where('username', $username);
+        $query = $this->db->get()->row_array();
+        return $query;
+    }
 }

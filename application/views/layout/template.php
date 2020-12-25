@@ -96,8 +96,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="brand-image mx-auto">
                         <img src="<?= base_url() . 'assets/images/user/k.jpeg' ?>" class=" mx-auto d-block"
                             alt="User Image" width="100px;" height="100px" style="border-radius: 50%;">
-                        <p class="text-light font-weight-bold mt-3 mx-4 ">{12341111111156}</p>
-                        <p class="text-light font-weight-bold ">komenk</p>
+                        <p class="text-light font-weight-bold mt-3 mx-4 ">Komenk back</p>
+                        <p class="text-light font-weight-bold ">Kasir</p>
                     </div>
 
                 </div>
@@ -144,7 +144,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li class="nav-item">
                                     <a href="<?= base_url('users') ?>" class="nav-link font-weight-bold text-light">
                                         <i class="fas fa-user-tag text-info"></i>
-                                        <p>User</p>
+                                        <p>Users</p>
                                     </a>
                                 </li>
                             </ul>
@@ -161,7 +161,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="<?= base_url('Dashboard') ?>" class="nav-link font-weight-bold text-light">
                                 <p>
                                     <i class="fas fa-file-invoice text-info"></i>
-                                    Laporan
+                                    Report
                                 </p>
                             </a>
                         </li>
@@ -169,7 +169,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="<?= base_url('Dashboard') ?>" class="nav-link font-weight-bold text-light">
                                 <p>
                                     <i class="fas fa-cogs text-info"></i>
-                                    Pengaturan
+                                    Setting
                                 </p>
                             </a>
                         </li>
@@ -177,7 +177,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="<?= base_url('Dashboard') ?>" class="nav-link font-weight-bold text-danger">
                                 <p>
                                     <i class="fas fa-sign-out-alt "></i>
-                                    Keluar
+                                    Logout
                                 </p>
                             </a>
                         </li>

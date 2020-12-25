@@ -7,7 +7,7 @@
             <div class="col-md-10 pt-3 pl-3">
                 <!-- general form elements disabled -->
                 <div class="card card text-dark">
-                    <div class="card-header">
+                    <div class="card-header bg-dark">
                         <h5 class="">Form Tambah Users</h5>
                     </div>
                     <!-- /.card-header -->
@@ -128,7 +128,7 @@
                                         class="fas fa-save "></i>
                                     <span class="text-info font-weight-bold">Simpan</span>
                                 </button>
-                                <a href="<?= base_url('databarang/kategori') ?>"> <button type="button"
+                                <a href="<?= base_url('users') ?>"> <button type="button"
                                         class="btn btn-outline-dark float-right"><span
                                             class="text-danger font-weight-bold">Kembali</span></button></a>
                             </div>

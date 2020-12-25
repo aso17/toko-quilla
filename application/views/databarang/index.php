@@ -64,12 +64,12 @@
                                             onclick="deleteConfirm('<?= base_url() . 'databarang/delete/' . $bar->id_barang ?>')"><i
                                                 class="fa fa-trash-alt">hapus</i></button>
                                         <a href="http://">
-                                            <button class="btn btn-outline-info btn-sm float-right mr-1"><i
+                                            <button class="btn btn-outline-secondary btn-sm float-right mr-1"><i
                                                     class="fas fa-eye">
                                                     detail</i></button>
                                         </a>
                                         <a href="http://">
-                                            <button class="btn btn-outline-primary btn-sm float-right mr-1 "><i
+                                            <button class="btn btn-outline-info btn-sm float-right mr-1 "><i
                                                     class="fas fa-edit">
                                                     ubah</i></button>
                                         </a>
