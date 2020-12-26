@@ -5,6 +5,7 @@ class barang_m extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tb_barang');
+        $this->db->order_by('nama_barang', 'dsc');
         $this->db->join('tb_kategori', 'tb_kategori.id_kategori=tb_barang.id_kategori');
         $query = $this->db->get()->result();
         return $query;
@@ -18,7 +19,7 @@ class barang_m extends CI_Model
         $jual = 30 / 100 * $harga;
         $untung = $harga + $jual;
         $data = [
-            "id_barang" => uniqid('ba'),
+            "kode_barang" => $post['kd_barang'],
             "id_kategori" => $post['kategori'],
             "nama_barang" => $post['nm_barang'],
             "ukuran" => $post['ukuran'],
@@ -32,8 +33,8 @@ class barang_m extends CI_Model
         ];
         $this->db->insert('tb_barang', $data);
     }
-    public function hapus($id_barang)
+    public function hapus($kode_barang)
     {
-        return $this->db->delete('tb_barang', ['id_barang' => $id_barang]);
+        return $this->db->delete('tb_barang', ['kode_barang' => $kode_barang]);
     }
 }

@@ -105,19 +105,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
 
                 <!-- Sidebar Menu -->
-                <nav class="mt-1">
-                    <ul class="nav nav-pills nav-sidebar flex-column  " data-widget="treeview" role="menu"
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu"
                         data-accordion="false">
                         <li class="nav-item ">
-                            <a href="<?= base_url('Dashboard') ?>" class="nav-link font-weight-bold text-light">
-                                <p><i class="fas fa-palette text-info"></i>
+                            <a href="<?= base_url('dashboard') ?>"
+                                class="nav-link <?= $this->uri->segment(1) == 'dashboard' ? 'active bg-danger' : '' ?> font-bold text-light">
+                                <i class="nav-icon fa fa-tachometer-alt text-info"></i>
+                                <p>
                                     Dashboard
                                 </p>
                             </a>
                         </li>
-
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link font-weight-bold text-light">
+                        <li class="nav-item">
+                            <a href="<?= base_url('user') ?>"
+                                class="nav-link font-bold <?= $this->uri->segment(1) == 'databarang' ? 'active bg-danger' : '' ?> font-bold text-light">
                                 <i class="fas fa-angle-left right"></i>
                                 <i class="fas fa-pager text-info"></i>
                                 <p>
@@ -128,63 +130,91 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="<?= base_url('databarang') ?>"
-                                        class="nav-link font-weight-bold text-light">
+                                        class="nav-link font-bold  font-bold text-light" class="nav-link">
                                         <i class="fas fa-table text-info"></i>
                                         <p>
-                                            Data Barang
+                                            Daftar Barang
 
                                         </p>
                                     </a>
                                 </li>
+
+                            </ul>
+                            <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="<?= base_url('databarang/kategori') ?>"
-                                        class="nav-link font-weight-bold text-light">
+                                        class="nav-link  font-bold text-light" class="nav-link">
                                         <i class="fas fa-layer-group text-info"></i>
                                         <p>Kategori Barang</p>
                                     </a>
                                 </li>
+
+                            </ul>
+                            <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('users') ?>" class="nav-link font-weight-bold text-light">
+                                    <a href="<?= base_url('event/index') ?>"
+                                        class="nav-link  <?= $this->uri->segment(1) == 'users' ? 'active bg-danger' : '' ?> font-bold text-light"
+                                        class="nav-link  text-light ">
                                         <i class="fas fa-user-tag text-info"></i>
                                         <p>Users</p>
                                     </a>
                                 </li>
+
                             </ul>
                         </li>
-                        <li class="nav-item ">
-                            <a href="<?= base_url('penjualan') ?>" class="nav-link font-weight-bold text-light">
-                                <p>
-                                    <i class="fas fa-align-left text-info"></i>
-                                    Entry Penjualan
-                                </p>
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                            data-accordion="false">
+
+
+                            <li class="nav-item ">
+                                <a href="<?= base_url('penjualan') ?>"
+                                    class="nav-link  <?= $this->uri->segment(1) == 'penjualan' ? 'active bg-danger' : '' ?> font-bold text-light">
+                                    <p>
+                                        <i class="fas fa-align-left text-info"></i>
+                                        Entry Penjualan
+                                    </p>
+                                </a>
+                            </li>
                             </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="<?= base_url('Dashboard') ?>" class="nav-link font-weight-bold text-light">
-                                <p>
-                                    <i class="fas fa-file-invoice text-info"></i>
-                                    Report
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="<?= base_url('Dashboard') ?>" class="nav-link font-weight-bold text-light">
-                                <p>
-                                    <i class="fas fa-cogs text-info"></i>
-                                    Setting
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="<?= base_url('loginPortal/logout') ?>"
-                                class="nav-link font-weight-bold text-danger">
-                                <p>
-                                    <i class="fas fa-sign-out-alt "></i>
-                                    Logout
-                                </p>
-                            </a>
-                        </li>
-                    </ul>
+                            <li class="nav-item ">
+                                <a href="<?= base_url('Dashboard') ?>"
+                                    class="nav-link <?= $this->uri->segment(1) == 'report' ? 'active bg-danger' : '' ?> font-bold text-light">
+                                    <i class="fas fa-angle-left right"></i>
+                                    <p>
+                                        <i class="fas fa-file-invoice text-info"></i>
+                                        Report
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('databarang/kategori') ?>"
+                                            class="nav-link  font-bold text-light" class="nav-link">
+                                            <i class="fas fa-calculator text-info"></i>
+                                            <p>Hasil Penjualan</p>
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+                            <li class="nav-item ">
+                                <a href="<?= base_url('Dashboard') ?>"
+                                    class="nav-link <?= $this->uri->segment(1) == 'setting' ? 'active bg-danger' : '' ?> font-bold text-light">
+                                    <p>
+                                        <i class="fas fa-cogs text-info"></i>
+                                        Setting
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a href="<?= base_url('loginPortal/logout') ?>" class="nav-link font-bold text-danger">
+                                    <p>
+                                        <i class="fas fa-sign-out-alt "></i>
+                                        Logout
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>

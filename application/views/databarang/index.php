@@ -4,7 +4,7 @@
 
         <div class="row pt-3">
             <div class="col-md-5">
-                <h3 class="">Daftar Barang cv.Quilla</h3>
+                <h3 class="">Daftar Barang Toko.Quilla</h3>
 
             </div>
         </div>
@@ -28,6 +28,7 @@
                                 <tr class="text-dark">
                                     <?php $i = 1; ?>
                                     <th>No</th>
+                                    <th>Kode Barang</th>
                                     <th>Nama barang</th>
                                     <th>kategori</th>
                                     <th>Merk</th>
@@ -48,6 +49,7 @@
                                 <?php foreach ($barang as $bar) : ?>
                                 <tr>
                                     <td><?= $i++ ?>.</td>
+                                    <td><?= $bar->kode_barang ?></td>
                                     <td><?= $bar->nama_barang ?></td>
                                     <td><?= $bar->kategori_barang ?></td>
 
@@ -61,7 +63,7 @@
 
                                     <td>
                                         <button class="btn btn-outline-danger btn-sm float-right "
-                                            onclick="deleteConfirm('<?= base_url() . 'databarang/delete/' . $bar->id_barang ?>')"><i
+                                            onclick="deleteConfirm('<?= base_url() . 'databarang/delete/' . $bar->kode_barang ?>')"><i
                                                 class="fa fa-trash-alt">hapus</i></button>
                                         <a href="http://">
                                             <button class="btn btn-outline-secondary btn-sm float-right mr-1"><i

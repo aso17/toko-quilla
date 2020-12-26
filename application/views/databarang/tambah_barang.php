@@ -21,6 +21,17 @@
                         <div class="row">
                             <div class="col-sm-7">
                                 <div class="form-group">
+                                    <label>*Kode Barang</label>
+                                    <input type="text"
+                                        class="form-control <?= form_error('kd_barang') ? 'is-invalid' : '' ?> "
+                                        name="kd_barang" autocomplete="off">
+                                    <div class="invalid-feedback">
+                                        <?= form_error('kd_barang') ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="form-group">
                                     <label>*Nama barang</label>
                                     <input type="text"
                                         class="form-control <?= form_error('nm_barang') ? 'is-invalid' : '' ?> "

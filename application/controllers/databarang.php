@@ -15,6 +15,7 @@ class databarang extends CI_Controller
     public function tambah_barang()
     {
         $validation = $this->form_validation;
+        $validation->set_rules('kd_barang', 'Kode Barang', 'trim|required');
         $validation->set_rules('nm_barang', 'Nama barang', 'trim|required');
         $validation->set_rules('kategori', 'pilih Kategori', 'trim|required');
         $validation->set_rules('ukuran', 'ukuran', 'trim|required');

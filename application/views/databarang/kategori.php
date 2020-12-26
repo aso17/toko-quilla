@@ -4,7 +4,7 @@
 
         <div class="row pt-3">
             <div class="col-md-5">
-                <h3 class="">Kategori Barang cv.Quilla</h3>
+                <h3 class="">Kategori Barang Toko.Quilla</h3>
 
             </div>
         </div>
