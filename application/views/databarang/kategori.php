@@ -12,6 +12,7 @@
             <div class="col-md-12">
                 <div class="card ">
                     <div class="card-header">
+                        <?php if ($this->session->userdata('role') == "admin") { ?>
 
                         <a href=" <?= base_url('databarang/tambahkategori') ?> ">
                             <button type="submit" name="submit" class="btn btn-outline-info"><i
@@ -21,6 +22,7 @@
                             </button>
 
                         </a>
+                        <?php } ?>
                         <tr>
                         </tr>
                     </div>
@@ -36,14 +38,16 @@
                         <li class="list-group-item ">
                             <h6 class="text-info ml-4 font-weight-bold">
                                 <h6><?= $i++ ?>.</h6> <?= $kate->kategori_barang; ?>
+                                <?php if ($this->session->userdata('role') == "admin") { ?>
                                 <button class="btn btn-outline-danger btn-sm float-right "
-                                    onclick="deleteConfirm('<?= base_url() . 'databarang/delete/' . $kate->id_kategori ?>')"><i
+                                    onclick="deleteConfirm('<?= base_url() . 'kategori/delete/' . $kate->id_kategori ?>')"><i
                                         class="fa fa-trash-alt">hapus</i></button>
                                 <a href="http://">
                                     <button class="btn btn-outline-info btn-sm float-right mr-2 "><i
                                             class="fas fa-edit">
                                             ubah</i></button>
                                 </a>
+                                <?php } ?>
                             </h6>
 
                         </li>

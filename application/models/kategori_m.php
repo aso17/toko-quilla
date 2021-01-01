@@ -19,4 +19,8 @@ class kategori_m extends CI_Model
         ];
         $this->db->insert('tb_kategori', $data);
     }
+    public function hapus($id_kategori)
+    {
+        return $this->db->delete('tb_kategori', ['id_kategori' => $id_kategori]);
+    }
 }

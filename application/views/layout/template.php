@@ -130,7 +130,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="<?= base_url('databarang') ?>"
-                                        class="nav-link font-bold  font-bold text-light" class="nav-link">
+                                        class="nav-link <?= $this->uri->segment(2) == 'daftarbarang/index' ? 'active bg-danger' : '' ?> font-bold  font-bold text-light"
+                                        class="nav-link">
                                         <i class="fas fa-table text-info"></i>
                                         <p>
                                             Daftar Barang
@@ -142,17 +143,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('databarang/kategori') ?>"
-                                        class="nav-link  font-bold text-light" class="nav-link">
+                                    <a href="<?= base_url('kategori') ?>"
+                                        class="nav-link <?= $this->uri->segment(1) == 'kategori' ? 'active bg-danger' : '' ?> font-bold text-light"
+                                        class="nav-link">
                                         <i class="fas fa-layer-group text-info"></i>
                                         <p>Kategori Barang</p>
                                     </a>
                                 </li>
 
                             </ul>
+                            <?php if ($this->session->userdata('role') == "admin") { ?>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('event/index') ?>"
+                                    <a href="<?= base_url('users') ?>"
                                         class="nav-link  <?= $this->uri->segment(1) == 'users' ? 'active bg-danger' : '' ?> font-bold text-light"
                                         class="nav-link  text-light ">
                                         <i class="fas fa-user-tag text-info"></i>
@@ -161,6 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
 
                             </ul>
+                            <?php } ?>
                         </li>
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                             data-accordion="false">
@@ -207,7 +211,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a href="<?= base_url('loginPortal/logout') ?>" class="nav-link font-bold text-danger">
+                                <a href="<?= base_url('users/logout') ?>" class="nav-link font-bold text-danger">
                                     <p>
                                         <i class="fas fa-sign-out-alt "></i>
                                         Logout

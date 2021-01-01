@@ -12,7 +12,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-
+                        <?php if ($this->session->userdata('role') == "admin") { ?>
                         <a href=" <?= base_url('databarang/tambah_barang') ?> ">
                             <button type="submit" name="submit" class="btn btn-outline-info"><i
                                     class="fas fa-plus-square mr-1 "></i>
@@ -20,6 +20,7 @@
                             </button>
 
                         </a>
+                        <?php } ?>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
@@ -27,9 +28,9 @@
                             <thead>
                                 <tr class="text-dark">
                                     <?php $i = 1; ?>
-                                    <th>No</th>
-                                    <th>Kode Barang</th>
-                                    <th>Nama barang</th>
+                                    <th>#</th>
+
+                                    <th>Nama</th>
                                     <th>kategori</th>
                                     <th>Merk</th>
                                     <th>Ukuran</th>
@@ -37,19 +38,19 @@
                                     <th>Stok</th>
 
                                     <th>Harga </th>
-
+                                    <?php if ($this->session->userdata('role') == "admin") { ?>
                                     <th class="text-center" style="">
                                         <i class="fas fa-directions bg-info"></i>
                                         aksi
                                     </th>
-
+                                    <?php } ?>
                                 </tr>
                             </thead>
                             <tbody class="text-dark">
                                 <?php foreach ($barang as $bar) : ?>
                                 <tr>
                                     <td><?= $i++ ?>.</td>
-                                    <td><?= $bar->kode_barang ?></td>
+
                                     <td><?= $bar->nama_barang ?></td>
                                     <td><?= $bar->kategori_barang ?></td>
 
@@ -61,21 +62,23 @@
 
                                     <td>Rp.<?= number_format($bar->harga_jual, 2, ',', '.') ?></td>
 
+                                    <?php if ($this->session->userdata('role') == "admin") { ?>
                                     <td>
                                         <button class="btn btn-outline-danger btn-sm float-right "
                                             onclick="deleteConfirm('<?= base_url() . 'databarang/delete/' . $bar->kode_barang ?>')"><i
-                                                class="fa fa-trash-alt">hapus</i></button>
+                                                class="fa fa-trash-alt"></i></button>
                                         <a href="http://">
-                                            <button class="btn btn-outline-secondary btn-sm float-right mr-1"><i
+                                            <button class="btn btn-outline-secondary btn-sm float-right ml-1 "><i
                                                     class="fas fa-eye">
-                                                    detail</i></button>
+                                                </i></button>
                                         </a>
                                         <a href="http://">
-                                            <button class="btn btn-outline-info btn-sm float-right mr-1 "><i
+                                            <button class="btn btn-outline-info btn-sm float-right   "><i
                                                     class="fas fa-edit">
-                                                    ubah</i></button>
+                                                </i></button>
                                         </a>
                                     </td>
+                                    <?php } ?>
 
                                 </tr>
                                 <?php endforeach; ?>

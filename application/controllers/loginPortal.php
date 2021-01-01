@@ -6,6 +6,7 @@ class loginPortal extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        cek_log();
         $this->load->model('users_m');
     }
     public function index()
@@ -19,6 +20,8 @@ class loginPortal extends CI_Controller
             $post = $this->input->post();
             $username = $post['username'];
             $users = $this->users_m->get_input_post($username);
+            var_dump($users);
+
             if ($users != null) {
                 $pass = $this->input->post('password');
                 if (password_verify($pass, $users['password'])) {
@@ -41,14 +44,5 @@ class loginPortal extends CI_Controller
                 redirect('loginPortal');
             }
         }
-    }
-    public function logout()
-    {
-        $this->session->unset_userdata('username');
-        $this->session->unset_userdata('role');
-        $this->session->unset_userdata('nama_lengkap');
-        $this->session->unset_userdata('id_user');
-        $this->session->unset_userdata('image');
-        redirect('loginPortal');
     }
 }

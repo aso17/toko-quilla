@@ -6,6 +6,8 @@ class users extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        ceklog();
+
         $this->load->model('users_m');
     }
 
@@ -39,5 +41,14 @@ class users extends CI_Controller
             $this->session->set_flashdata('success', 'Data users berhasil di tambah');
             redirect('users');
         }
+    }
+    public function logout()
+    {
+        $this->session->unset_userdata('id_user');
+        $this->session->unset_userdata('username');
+        $this->session->unset_userdata('role');
+        $this->session->unset_userdata('nama_lengkap');
+        $this->session->unset_userdata('image');
+        redirect('loginPortal/index');
     }
 }
