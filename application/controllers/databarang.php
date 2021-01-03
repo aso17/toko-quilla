@@ -48,13 +48,4 @@ class databarang extends CI_Controller
         $this->session->set_flashdata('success', 'Data Barang berhasil di hapus');
         redirect('databarang');
     }
-
-    public function cari()
-    {
-        $kode = $this->input->post('kd_barang');
-        $data['barang'] = $this->barang_m->get_data_barang_bykode($kode);
-        var_dump($data['barang']);
-        die;
-        echo json_encode($data);
-    }
 }

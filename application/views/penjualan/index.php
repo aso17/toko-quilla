@@ -41,11 +41,11 @@
 
 
                     </div>
-                    <div class="col-md mr-4 ">
+                    <div class="col-md ">
                         <div class="card-header">
-                            <h3>Data Barang</h3>
+                            <h3 class="text-info">Daftar Barang Toko Quilla Barang</h3>
                         </div>
-                        <div class="card text-dark mx-4 ">
+                        <div class="card text-dark">
 
                             <table id="tb_barang" class="table table-sm ">
                                 <thead>
@@ -54,6 +54,7 @@
                                         <th>#</th>
                                         <th>Kode barang</th>
                                         <th>Nama Barang</th>
+                                        <th>stok</th>
                                         <th>harga</th>
                                         <th>pilh</th>
 
@@ -73,12 +74,13 @@
                                         <td>
                                             <?= $b->nama_barang ?>
                                         </td>
+                                        <td><?= $b->jml_barang ?></td>
                                         <td>
-                                            <?= $b->harga_jual ?>
+                                            Rp. <?= number_format($b->harga_jual)  ?>
                                         </td>
                                         <td>
                                             <a href="<?= base_url('penjualan/beli/') . $b->kode_barang ?>">
-                                                <button class="btn btn-info btn-sm ">pilih</button>
+                                                <button class="btn btn-dark btn-sm ">pilih</button>
                                             </a>
                                         </td>
 
@@ -98,69 +100,131 @@
 
 
                 </div>
-                <form action=" <?= base_url('databarang/cari') ?> " method=" post">
-                    <div class="row mr-2  ">
-                        <div class="col-md-12">
 
-                            <div class="card ">
-                                <div class="card-header bg-info">
+                <div class="row   ">
+                    <div class="col-md-12">
 
-                                    <label for="">Tanggal</label>
-                                    <input type="text">
-                                </div>
+                        <div class="card ">
+                            <div class="card-header text-info ">
+                                <h3>Detail Transaksi</h3>
 
-                                <table id="dataTble" style="" class="table table-sm">
-                                    <thead class="">
-
-                                        <tr>
-
-                                            <th>#</th>
-                                            <th>Kode barang</th>
-                                            <th>Nama Barang</th>
-                                            <th>Jumlah Beli</th>
-                                            <th>harga</th>
-                                            <th>total</th>
-
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                                <div class="row">
-
-                                    <div class="col">
-
-                                        <button class="btn btn-success btn-lg float-right mr-4 mb-2 mt-2 " type="submit"
-                                            name="submit"><i class="fas fa-shopping-cart"></i>
-                                            bayar</button>
-                                    </div>
-                                </div>
-
+                                <label for="">Tanggal</label>
+                                <input type="text" id="jamServer" value="<?= date('d-m-Y H:i'); ?>" readonly disabled>
                             </div>
+
+                            <table id="dataTble" style="" class="table table-sm text-dark">
+                                <thead class="">
+
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Kode barang</th>
+                                        <th>Nama Barang</th>
+                                        <th>Jumlah Beli</th>
+                                        <th>harga</th>
+                                        <th>Total</th>
+                                        <th>Action</th>
+
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($detail_transaksi as $transaksi) : ?>
+                                    <tr>
+                                        <td><?= $i++; ?>.</td>
+                                        <td><?= $transaksi->kode_barang ?></td>
+                                        <td><?= $transaksi->nama_barang ?></td>
+                                        <td><?= $transaksi->jumlah_beli ?></td>
+                                        <td>Rp.<?= number_format($transaksi->total_harga)  ?></td>
+                                        <td>Rp.<?= number_format($transaksi->total_harga)  ?>
+                                        </td>
+                                        <td><button
+                                                onclick="deleteConfirm('<?= base_url() . 'penjualan/hapus/'  . $kode . '-' . $transaksi->kode_barang ?>')"
+                                                class="btn btn-danger btn-sm bg-danger"><i class="far fa-trash-alt">
+                                                    Batalkan</i></button>
+                                        </td>
+
+                                    </tr>
+
+                                    <?php endforeach;  ?>
+                                    <tr class="">
+                                        <td colspan="5">
+                                            <h5 class="text-danger font-weight-bold"> <strong> Sub Total</strong>
+                                            </h5>
+                                        </td>
+                                        <td colspan="2" class="text-danger font-weight-bold">
+                                            <strong> Rp.<?= number_format($sub_total->total) ?></strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <a href="<?= base_url('penjualan/bayar/') . $sub_total->total ?>"> <button
+                                            class="btn btn-info btn-lg float-right mr-4 mb-2 mt-2 " type="button"
+                                            name="button"><i class="fas fa-money-check"></i>
+                                            bayar</button></a>
+                                    <?php $transaksi = $kode;
+                                    $i = 1;
+                                    $kode_transaksi = $transaksi - $i;
+                                    ?>
+                                    <a href="<?= base_url('penjualan/print/') . $kode_transaksi ?>"> <button
+                                            class="btn btn-dark btn-lg float-right mr-4 mb-2 mt-2 " type="button"
+                                            name="button"><i class="fas fa-print"></i>
+                                            print</button></a>
+                                </div>
+                            </div>
+
                         </div>
-
-
-
-
                     </div>
-                </form>
+
+
+
+
+                </div>
+
             </div>
         </div>
         <!-- /.row -->
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content -->
+<!--Delete Confirmation-->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-3 d-flex justify-content-center">
+                        <i class="fa  fa-exclamation-triangle" style="font-size: 70px; color:red;"></i>
+                    </div>
+                    <div class="col-9 pt-2">
+                        <h5>Apakah anda yakin?</h5>
+                        <span>Ingin Batalkan Transaksi.</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" type="button" data-dismiss="modal"> Batal</button>
+                <a id="btn-delete" class="btn btn-danger" href="#"> Hapus</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirm -->
+
+<script type="text/javascript">
+function deleteConfirm(url) {
+    $('#btn-delete').attr('href', url);
+    $('#deleteModal').modal();
+}
+</script>
 <script>
 $(document).ready(function() {
     $("#kd_barang").on('input', function() {
