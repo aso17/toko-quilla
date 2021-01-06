@@ -41,36 +41,56 @@ class Penjualan extends CI_Controller
 
     public function beli($kode_barang)
     {
-        $harga = $this->barang_m->getByid($kode_barang);
-        $harga_jual = $harga['harga_jual'];
-        $id_transaksi = $this->transaksi_m->orderBy_kode_transaksi('id_transaksi', 'tb_transaksi', 'DESC')->row();
-        $id = $id_transaksi->id_transaksi;
-        // $id_transaksi = $this->transaksi_m->orderBy_kode_transaksi('id_transaksi', 'tb_transaksi', 'DESC')->row();
-
-        if (empty($id_transaksi)) {
-            $data['kode'] = 1;
-            $kode['id_transaksi'] = 1;
-        } else {
-
-            $data['kode'] = $id_transaksi->id_transaksi + 1;
-            $kode['id_transaksi'] = $id_transaksi->id_transaksi + 1;
-        }
-
-        //pengecekan barang 
-        $id_barang = $kode_barang;
-        $id_jual = $kode['id_transaksi'];
-        $detail_penjualan = $this->detail_m->get_byid($id_jual, $id_barang)->row();
-        // var_dump($detail_penjualan);
+        $jml_barang = $this->barang_m->getByid($kode_barang);
+        $stok = $jml_barang['jml_barang'];
+        // var_dump($jml_barang);
         // die;
-        if ($detail_penjualan == null) {
 
-            $this->detail_m->creat($kode_barang, $harga_jual, $id);
+        //pengecekan stok barang
+        if ($stok > 0) {
+
+
+            $harga = $this->barang_m->getByid($kode_barang);
+            $harga_jual = $harga['harga_jual'];
+            $id_transaksi = $this->transaksi_m->orderBy_kode_transaksi('id_transaksi', 'tb_transaksi', 'DESC')->row();
+            $id = $id_transaksi->id_transaksi;
+            // $id_transaksi = $this->transaksi_m->orderBy_kode_transaksi('id_transaksi', 'tb_transaksi', 'DESC')->row();
+
+            if (empty($id_transaksi)) {
+                $data['kode'] = 1;
+                $kode['id_transaksi'] = 1;
+            } else {
+
+                $data['kode'] = $id_transaksi->id_transaksi + 1;
+                $kode['id_transaksi'] = $id_transaksi->id_transaksi + 1;
+            }
+
+            //pengecekan barang 
+            $id_barang = $kode_barang;
+            $id_jual = $kode['id_transaksi'];
+            $detail_penjualan = $this->detail_m->get_byid($id_jual, $id_barang)->row();
+            // var_dump($detail_penjualan);
+            // die;
+
+
+            if ($detail_penjualan == null) {
+                if ($stok > 3) {
+                    $this->session->set_flashdata('info', 'stok  awal tersisa' . ' ' . $stok);
+                    $this->detail_m->creat($kode_barang, $harga_jual, $id);
+                } else {
+                    $this->detail_m->creat($kode_barang, $harga_jual, $id);
+                    redirect('penjualan');
+                }
+            } else {
+                $jml_beli = $detail_penjualan->jumlah_beli + 1;
+
+                $total = $jml_beli *  $detail_penjualan->harga_jual;
+
+                $this->detail_m->update($kode_barang, $id_jual, $jml_beli, $total);
+                redirect('penjualan');
+            }
         } else {
-            $jml_beli = $detail_penjualan->jumlah_beli + 1;
-
-            $total = $jml_beli *  $detail_penjualan->harga_jual;
-
-            $this->detail_m->update($kode_barang, $id_jual, $jml_beli, $total);
+            $this->session->set_flashdata('error', ' Maaf stok barang sudah habis');
             redirect('penjualan');
         }
     }

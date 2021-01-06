@@ -111,8 +111,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item ">
                             <a href="<?= base_url('dashboard') ?>"
                                 class="nav-link <?= $this->uri->segment(1) == 'dashboard' ? 'active bg-danger' : '' ?> font-bold text-light">
-                                <i class="nav-icon fa fa-tachometer-alt text-info"></i>
                                 <p>
+                                    <i class="nav-icon fa fa-tachometer-alt text-info"></i>
                                     Dashboard
                                 </p>
                             </a>

@@ -6,35 +6,13 @@
             <div class="card mt-3 text-dark">
                 <div class="card-header ">
 
-                    <h3>Transaksi penjualan</h3>
+
+                    <h3 class="text-info"><strong>Transaksi penjualan </strong></h3>
+
                 </div>
-                <div class="row mt-4">
+                <div class="row mt-0">
                     <div class="col-md-4 ">
 
-                        <ul class=" list-group list-group-horizontal">
-                            <tr>
-                                <td>
-                                    <li class="list-group-item">Nama Kasir</li>
-                                </td>
-                                <td>
-                                    <li class="list-group-item">Dapibus ac fassssssci</li>
-                                </td>
-                            </tr>
-
-
-                        </ul>
-                        <ul class=" list-group list-group-horizontal">
-                            <tr>
-                                <td>
-                                    <li class="list-group-item">Tangal Transaksi</li>
-                                </td>
-                                <td>
-                                    <li class="list-group-item">Dapibus ac fassssssci</li>
-                                </td>
-                            </tr>
-
-
-                        </ul>
 
 
 
@@ -43,7 +21,7 @@
                     </div>
                     <div class="col-md ">
                         <div class="card-header">
-                            <h3 class="text-info">Daftar Barang Toko Quilla Barang</h3>
+                            <h5 class="text-info">Daftar Barang Toko Quilla Barang</h5>
                         </div>
                         <div class="card text-dark">
 
@@ -56,7 +34,7 @@
                                         <th>Nama Barang</th>
                                         <th>stok</th>
                                         <th>harga</th>
-                                        <th>pilh</th>
+                                        <th></th>
 
                                     </tr>
                                 </thead>
@@ -80,7 +58,8 @@
                                         </td>
                                         <td>
                                             <a href="<?= base_url('penjualan/beli/') . $b->kode_barang ?>">
-                                                <button class="btn btn-dark btn-sm ">pilih</button>
+                                                <button class="btn btn-dark btn-sm "><i class="fas fa-check-circle"></i>
+                                                    Pilih</button>
                                             </a>
                                         </td>
 
@@ -106,13 +85,13 @@
 
                         <div class="card ">
                             <div class="card-header text-info ">
-                                <h3>Detail Transaksi</h3>
+                                <h5>Detail Transaksi</h5>
 
                                 <label for="">Tanggal</label>
                                 <input type="text" id="jamServer" value="<?= date('d-m-Y H:i'); ?>" readonly disabled>
                             </div>
 
-                            <table id="dataTble" style="" class="table table-sm text-dark">
+                            <table id="dataTble" style="" class="table table-sm text-dark" border="1">
                                 <thead class="">
 
                                     <tr>
@@ -122,7 +101,7 @@
                                         <th>Jumlah Beli</th>
                                         <th>harga</th>
                                         <th>Total</th>
-                                        <th>Action</th>
+                                        <th></th>
 
 
 
@@ -141,8 +120,8 @@
                                         </td>
                                         <td><button
                                                 onclick="deleteConfirm('<?= base_url() . 'penjualan/hapus/'  . $kode . '-' . $transaksi->kode_barang ?>')"
-                                                class="btn btn-danger btn-sm bg-danger"><i class="far fa-trash-alt">
-                                                    Batalkan</i></button>
+                                                class="btn btn-danger btn-sm bg-danger"><i
+                                                    class="fas fa-window-close"></i> Batalkan</button>
                                         </td>
 
                                     </tr>
