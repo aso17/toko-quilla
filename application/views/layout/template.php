@@ -59,7 +59,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light text-light"
-            style="background-color:#8B0000;">
+            style="background-color:#191970;">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -79,7 +79,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar  elevation-4" style=" background-color:#000000;">
+        <aside class="main-sidebar  elevation-4" style=" background-color:#191970;">
             <!-- Brand Logo -->
             <a href="" class="brand-link  text-light">
                 <img src="<?= base_url() . 'assets/images/logo.png' ?>" alt="Aqila Logo"
@@ -181,7 +181,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
                             </a>
                             <li class="nav-item ">
-                                <a href="<?= base_url('Dashboard') ?>"
+                                <a href="<?= base_url('report') ?>"
                                     class="nav-link <?= $this->uri->segment(1) == 'report' ? 'active bg-danger' : '' ?> font-bold text-light">
                                     <i class="fas fa-angle-left right"></i>
                                     <p>
@@ -191,10 +191,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="<?= base_url('databarang/kategori') ?>"
-                                            class="nav-link  font-bold text-light" class="nav-link">
+                                        <a href="<?= base_url('report') ?>" class="nav-link  font-bold text-light"
+                                            class="nav-link">
                                             <i class="fas fa-calculator text-info"></i>
                                             <p>Hasil Penjualan</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('report') ?>" class="nav-link  font-bold text-light"
+                                            class="nav-link">
+                                            <i class="fab fa-accusoft text-info "></i></i>
+                                            <p>Barang Belum Terjual</p>
                                         </a>
                                     </li>
 
@@ -211,7 +218,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a href="<?= base_url('users/logout') ?>" class="nav-link font-bold text-danger">
+                                <a href="<?= base_url('users/logout') ?>" class="nav-link font-weight-bold text-danger">
                                     <p>
                                         <i class="fas fa-sign-out-alt "></i>
                                         Logout
@@ -250,13 +257,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.control-sidebar -->
 
         <!-- Main Footer -->
-        <footer class="main-footer" style=" background-color:#8B0000;">
+        <footer class="main-footer" style=" background-color:#191970;">
             <!-- To the right -->
             <div class="float-right d-none d-sm-inline">
                 Anything you want
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2014-2019 <a href=" https://adminlte.io">A_so </a>. </strong> All rights reserved.
+            <strong>Copyright &copy; 2020-2021 <a href=" https://adminlte.io">A_so </a>. </strong> All rights reserved.
         </footer>
     </div> <!-- ./wrapper -->
     <!-- Alert Config -->

@@ -19,4 +19,14 @@ class transaksi_m extends CI_Model
 
         $this->db->insert('tb_transaksi', $data);
     }
+    public function laporan($table, $kondisi)
+    {
+        return $this->db->get_where($table, $kondisi)->result();
+    }
+    public function total($table, $total, $kondisi)
+    {
+        $this->db->select('SUM(' . $total . ') as total');
+        $this->db->where($kondisi);
+        return $this->db->get($table);
+    }
 }
