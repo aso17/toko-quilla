@@ -23,6 +23,7 @@ class report extends CI_Controller
         $kondisi['tgl_transaksi <='] = $this->input->post('ahir');
         $data['laporan'] = $this->transaksi_m->laporan('tb_transaksi', $kondisi);
         $data['total'] = $this->transaksi_m->total('tb_transaksi', 'sub_total', $kondisi)->row();
-        $this->templates->load('layout/template', 'report/index', $data);
+
+        $this->templates->load('layout/template', 'report/hasil_report', $data);
     }
 }

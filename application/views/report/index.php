@@ -37,39 +37,24 @@
             <!-- /.row -->
         </div><!-- /.container-fluid -->
 
-        <div class="row">
-            <div class="col">
-                <table class="table" border="1">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Tanggal Penjualan</th>
-                            <th>pendapatan</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $i = 1; ?>
-                        <?php if ($_POST) { ?>
-                        <?php foreach ($laporan as $lap) :  ?>
-                        <tr>
-                            <td><?= $i++ ?></td>
-                            <td><?= $lap->tgl_transaksi ?></td>
-                            <td>Rp.<?= number_format($lap->sub_total)  ?></td>
-                        </tr>
-                        <?php endforeach; ?>
-                        <tr>
-                            <td colspan="2" class="text-danger"> <strong>Total pendapatan</strong> </td>
-                            <td class="text-danger"> <strong>Rp.<?= number_format($total->total)  ?></strong> </td>
-                        </tr>
-                        <?php } else { ?>
-
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
 
     </div>
 </div>
+<script>
+$(function() {
+
+    $("#report").DataTable({
+        "responsive": true,
+        "autoWidth": false,
+        "info": false,
+        "lengthChange": false,
+        "lengthMenu": [
+            [5, 10, 50, -1],
+            [5, 10, 50, "All"]
+        ],
+        "paging": true,
+
+    });
+});
+</script>
 <!-- /.content -->
