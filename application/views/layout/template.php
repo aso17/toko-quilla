@@ -198,8 +198,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="<?= base_url('report') ?>" class="nav-link  font-bold text-light"
-                                            class="nav-link">
+                                        <a href="<?= base_url('report/belum_terjual') ?>"
+                                            class="nav-link  font-bold text-light" class="nav-link">
                                             <i class="fab fa-accusoft text-info "></i></i>
                                             <p>Barang Belum Terjual</p>
                                         </a>

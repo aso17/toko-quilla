@@ -15,7 +15,7 @@ class detail_m extends CI_Model
 
             'kode_barang' =>  $id,
             'id_transaksi' => $kode_jual,
-            'tgl_input'    => date('Y/m/d'),
+            'tgl_input'    => date('l,d/m/y'),
             'jumlah_beli'    => $jml_beli,
             'total_harga'    => $harga
         ];

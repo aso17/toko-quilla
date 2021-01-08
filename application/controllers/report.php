@@ -26,4 +26,9 @@ class report extends CI_Controller
 
         $this->templates->load('layout/template', 'report/hasil_report', $data);
     }
+    public function belum_terjual()
+    {
+        $data['barang'] = $this->barang_m->get_belumterjual();
+        $this->templates->load('layout/template', 'report/belum_terjual', $data);
+    }
 }

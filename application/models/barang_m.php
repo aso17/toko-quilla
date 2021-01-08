@@ -75,4 +75,12 @@ class barang_m extends CI_Model
         // }
         // return $hsl;
     }
+    public function get_belumterjual()
+    {
+        $query = $this->db->query(
+            "SELECT * FROM tb_barang WHERE kode_barang 
+            NOT IN (SELECT kode_barang FROM tb_detail )"
+        );
+        return $query->result();
+    }
 }

@@ -7,19 +7,32 @@
                 <div class="card">
 
 
-                    <div class="row justify-center">
+                    <div class="row justify-center mt-3 text-center mx-3">
                         <div class="col-md-12">
-                            <h5> <strong class="text-info ml-3">Hasil Laporan Penjualan</strong></h5>
+                            <h4 class="text-info text-center"> <strong class="">Hasil Laporan Penjualan</strong>
+                            </h4>
                             <div class="form-group">
-                                <label class="ml-3">Tangal</label>
+                                <label class=" text-info">Tangal</label>
                                 <div>
-                                    <p class="ml-3"><?= $this->input->post('awal') ?></p>
+                                    <p class=" text-info"><?= $this->input->post('awal') ?></p>
 
                                 </div>
-                                <label class="ml-3">Sampai Tanggal </label>
+                                <label class=" text-info">Sampai Dengan Tanggal </label>
                                 <div>
-                                    <p class="ml-3"><?= $this->input->post('ahir') ?></p>
+                                    <p class=" text-info"><?= $this->input->post('ahir') ?></p>
 
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center  float-right mb-2 mr-5 ">
+                                <button class="btn btn-outline-info text-dark btn-sm dropdown-toggle font-weight-bold"
+                                    type="button" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">Cetak Laporan</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item text-dark" href="<?= base_url('Laporan/cetak_pdf/') ?>"
+                                        target="_blank"><i class="fas fa-file-pdf"></i>cetak pdf</a>
+                                    <a class="dropdown-item text-success"
+                                        href="<?= base_url('Laporan/cetak_excel/') ?>"><i
+                                            class="fas fa-file-excel"></i>Cetak Exel</a>
                                 </div>
                             </div>
                         </div>
@@ -28,7 +41,7 @@
                     </div>
 
 
-                    <table class="table" id="report" border="1">
+                    <table class="table pl-3 pr-3" id="report" border="1">
                         <thead class="bg-secondary">
 
                             <tr>
@@ -46,7 +59,7 @@
                             <?php foreach ($laporan as $lap) :  ?>
                             <tr>
                                 <td><?= $i++ ?>.</td>
-                                <td><?= $lap->tgl_transaksi ?></td>
+                                <td> Tanggal Penjualan <?= $lap->tgl_transaksi ?></td>
                                 <td>Rp.<?= number_format($lap->sub_total)  ?></td>
                             </tr>
                             <?php endforeach; ?>
@@ -66,8 +79,9 @@
         </div>
     </div>
 
+
+    <!-- /.row -->
 </div>
-<!-- /.row -->
-</div><!-- /.container-fluid -->
+<!-- /.container-fluid -->
 
 <!-- /.content -->
