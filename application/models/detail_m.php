@@ -15,7 +15,7 @@ class detail_m extends CI_Model
 
             'kode_barang' =>  $id,
             'id_transaksi' => $kode_jual,
-            'tgl_input'    => date('l,d/m/y'),
+            'tgl_input'    => date('y-m-d'),
             'jumlah_beli'    => $jml_beli,
             'total_harga'    => $harga
         ];
@@ -57,5 +57,25 @@ class detail_m extends CI_Model
         $this->db->select('SUM(' . $total . ') as total');
         $this->db->where($kondisi);
         return $this->db->get($table);
+    }
+    public function laporan($tgl_awal, $tgl_ahir)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_detail');
+
+        $this->db->join('tb_barang', 'tb_barang.kode_barang=tb_detail.kode_barang');
+        $this->db->where('tb_detail.tgl_input >=', $tgl_awal);
+        $this->db->where('tb_detail.tgl_input >=', $tgl_ahir);
+
+        return $this->db->get()->result();
+    }
+    public function getAll_report($tgl_1, $tgl_2)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_detail');
+        $this->db->where('tgl_transaksi >=', $tgl_1);
+        $this->db->where('tgl_transaksi <=', $tgl_2);
+        $query = $this->db->get();
+        return $query->result();
     }
 }

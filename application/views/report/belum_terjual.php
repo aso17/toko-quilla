@@ -4,7 +4,7 @@
 
         <div class="row pt-3">
             <div class="col-md-5">
-                <h3 class="">Laporan Barang Belum Terjual</h3>
+
 
             </div>
         </div>
@@ -12,6 +12,18 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
+                        <h3 class="text-info">Laporan Barang Belum Terjual</h3>
+                        <div class="d-flex justify-content-center  float-right mb-2 mr-5 ">
+                            <button class="btn btn-outline-info text-dark btn-sm dropdown-toggle font-weight-bold"
+                                type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Export
+                                Laporan</button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item text-dark" href="<?= base_url('Laporan/cetak_pdf/') ?>"
+                                    target="_blank"><i class="fas fa-file-pdf"></i>cetak pdf</a>
+                                <a class="dropdown-item text-success" href="<?= base_url('Laporan/cetak_excel/') ?>"><i
+                                        class="fas fa-file-excel"></i>Cetak Exel</a>
+                            </div>
+                        </div>
                         <?php if ($this->session->userdata('role') == "admin") { ?>
                         <a href=" <?= base_url('databarang/tambah_barang') ?> ">
                             <button type="submit" name="submit" class="btn btn-outline-info"><i

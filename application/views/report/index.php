@@ -25,8 +25,8 @@
                                 </div>
                             </div>
 
-                            <button class="btn btn-outline-secondary font-bold float-right" type="submit"
-                                name="cetak">Preview</button>
+                            <button class="btn btn-outline-dark font-bold float-right text-info" type="submit"
+                                name="cetak">Print Preview</button>
 
                     </div>
                     </form>

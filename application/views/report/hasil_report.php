@@ -26,9 +26,10 @@
                             <div class="d-flex justify-content-center  float-right mb-2 mr-5 ">
                                 <button class="btn btn-outline-info text-dark btn-sm dropdown-toggle font-weight-bold"
                                     type="button" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">Cetak Laporan</button>
+                                    aria-expanded="false">Export Laporan</button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item text-dark" href="<?= base_url('Laporan/cetak_pdf/') ?>"
+                                    <a class="dropdown-item text-dark"
+                                        href="<?= base_url('report/cetak_pdf/') . $tgl_awal . '/' . $tgl_ahir ?>"
                                         target="_blank"><i class="fas fa-file-pdf"></i>cetak pdf</a>
                                     <a class="dropdown-item text-success"
                                         href="<?= base_url('Laporan/cetak_excel/') ?>"><i
@@ -45,9 +46,12 @@
                         <thead class="bg-secondary">
 
                             <tr>
-                                <th style="width: 3%;">No</th>
-                                <th style="width: 10px;">Tanggal Penjualan</th>
-                                <th style="width: 7%;">pendapatan</th>
+
+                                <th style="">Kode transaksi</th>
+                                <th style="">Kode barang</th>
+                                <th style="">Nama barang</th>
+                                <th style="">Tanggal Penjualan</th>
+                                <th style="">pendapatan</th>
 
 
                             </tr>
@@ -58,16 +62,21 @@
                             <?php if ($_POST) { ?>
                             <?php foreach ($laporan as $lap) :  ?>
                             <tr>
-                                <td><?= $i++ ?>.</td>
-                                <td> Tanggal Penjualan <?= $lap->tgl_transaksi ?></td>
-                                <td>Rp.<?= number_format($lap->sub_total)  ?></td>
+
+                                <td> <?= $lap->id_transaksi ?></td>
+                                <td> <?= $lap->kode_barang ?></td>
+                                <td> <?= $lap->nama_barang ?></td>
+                                <td><?= $lap->tgl_input ?></td>
+                                <td>Rp.<?= number_format($lap->total_harga)  ?></td>
                             </tr>
                             <?php endforeach; ?>
                             <tr>
-                                <td colspan="2" class="text-danger">
+                                <td colspan="4" class="text-danger">
                                     <h4> <strong>Total pendapatan</strong></h4>
                                 </td>
-                                <td class="text-danger"> <strong>Rp.<?= number_format($total->total)  ?></strong> </td>
+                                <td class="text-danger"> <strong>Rp.
+                                        <?= number_format($total->total)  ?>
+                                    </strong> </td>
                             </tr>
                             <?php } else { ?>
 

@@ -29,4 +29,13 @@ class transaksi_m extends CI_Model
         $this->db->where($kondisi);
         return $this->db->get($table);
     }
+    public function getAll_report($tgl_1, $tgl_2)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_transaksi');
+        $this->db->where('tgl_transaksi >=', $tgl_1);
+        $this->db->where('tgl_transaksi <=', $tgl_2);
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
