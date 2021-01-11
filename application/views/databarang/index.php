@@ -72,7 +72,7 @@
                                                     class="fas fa-eye">
                                                 </i></button>
                                         </a>
-                                        <a href="http://">
+                                        <a href="<?= base_url('databarang/edit/') . $bar->kode_barang ?>">
                                             <button class="btn btn-outline-info btn-sm float-right   "><i
                                                     class="fas fa-edit">
                                                 </i></button>

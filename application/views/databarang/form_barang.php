@@ -9,11 +9,11 @@
                 <!-- general form elements disabled -->
                 <div class="card card text-dark">
                     <div class="card-header bg-dark">
-                        <h5 class="">Form Tambah Barang</h5>
+                        <h5 class="">Form <?= $judul ?></h5>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <?= form_open_multipart('') ?>
+                        <?= form_open_multipart($judul == 'Ubah Data Barang' ? 'databarang/editbarang' : '') ?>
 
                         <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>"
                             value="<?= $this->security->get_csrf_hash(); ?>" style="display: none">
@@ -22,9 +22,12 @@
                             <div class="col-sm-7">
                                 <div class="form-group">
                                     <label>*Kode Barang</label>
-                                    <input type="text"
+                                    <input type="text" value="<?php if ($judul == "Ubah Data Barang") {
+                                                                    echo $barang['kode_barang'];
+                                                                } ?>"
                                         class="form-control <?= form_error('kd_barang') ? 'is-invalid' : '' ?> "
                                         name="kd_barang" autocomplete="off">
+
                                     <div class="invalid-feedback">
                                         <?= form_error('kd_barang') ?>
                                     </div>
@@ -33,10 +36,12 @@
                             <div class="col-sm-7">
                                 <div class="form-group">
                                     <label>*Nama barang</label>
-                                    <input type="text"
-                                        class="form-control <?= form_error('nm_barang') ? 'is-invalid' : '' ?> "
-                                        name="nm_barang" autocomplete="off">
-                                    <div class="invalid-feedback">
+                                    <input type="text" value="<?php if ($judul == "Ubah Data Barang") {
+                                                                    echo $barang['nama_barang'];
+                                                                } ?>"
+                                        class=" form-control <?= form_error('nm_barang') ? 'is-invalid' : '' ?> "
+                                        name=" nm_barang" autocomplete="off">
+                                    <div class=" invalid-feedback">
                                         <?= form_error('nm_barang') ?>
                                     </div>
                                 </div>
@@ -47,10 +52,20 @@
                                     <label>*kategori Barang</label>
                                     <select class="form-control  <?= form_error('kategori') ? 'is-invalid' : '' ?> "
                                         name="kategori">
-                                        <option>pilih</option>
+                                        <?php if ($judul == "Tambah Barang") { ?>
+                                        <option> pilih </option>
                                         <?php foreach ($kategori as $kat) : ?>
                                         <option value="<?= $kat->id_kategori ?>"><?= $kat->kategori_barang ?></option>
                                         <?php endforeach; ?>
+
+                                        <?php } else { ?>
+                                        <?php foreach ($kategori as $kat) : ?>
+                                        <option value="<?= $kat->id_kategori ?> ?>"><?= $kat->kategori_barang ?>
+                                            <?php endforeach; ?>
+                                        </option>
+
+
+                                        <?php } ?>
 
                                     </select>
                                     <div class="invalid-feedback">
@@ -65,7 +80,9 @@
                                 <!-- text input -->
                                 <div class="form-group">
                                     <label>*Ukuran</label>
-                                    <input type="text"
+                                    <input type="text" value="<?php if ($judul == "Ubah Data Barang") {
+                                                                    echo $barang['ukuran'];
+                                                                } ?>"
                                         class="form-control <?= form_error('ukuran') ? 'is-invalid' : '' ?>"
                                         name="ukuran" autocomplete="off">
                                     <div class="invalid-feedback">
@@ -76,7 +93,9 @@
                             <div class="col-sm-7">
                                 <div class="form-group">
                                     <label>*Warna</label>
-                                    <input type="text"
+                                    <input type="text" value="<?php if ($judul == "Ubah Data Barang") {
+                                                                    echo $barang['warna'];
+                                                                } ?>"
                                         class="form-control <?= form_error('warna') ? 'is-invalid' : '' ?>"
                                         name="warna">
                                     <div class="invalid-feedback">
@@ -87,8 +106,10 @@
                             <div class="col-sm-7">
                                 <div class="form-group">
                                     <label>*Merk</label>
-                                    <input type="text"
-                                        class="form-control <?= form_error('merk') ? 'is-invalid' : '' ?>" name="merk">
+                                    <input type="text" value="<?php if ($judul == "Ubah Data Barang") {
+                                                                    echo $barang['nama_barang'];
+                                                                } ?>"
+                                        class="form-control  <?= form_error('merk') ? 'is-invalid' : '' ?>" name="merk">
                                     <div class="invalid-feedback">
                                         <?= form_error('merk') ?>
                                     </div>
@@ -101,7 +122,9 @@
                                 <!-- select -->
                                 <div class="form-group">
                                     <label>*Jumlah Barang</label>
-                                    <input type="number"
+                                    <input type="number" value="<?php if ($judul == "Ubah Data Barang") {
+                                                                    echo $barang['jml_barang'];
+                                                                } ?>"
                                         class="form-control <?= form_error('jml_barang') ? 'is-invalid' : '' ?>"
                                         name="jml_barang">
                                     <div class="invalid-feedback">
@@ -116,7 +139,9 @@
                                 <!-- textarea -->
                                 <div class="form-group">
                                     <label>*Harga Satuan</label>
-                                    <input type="text"
+                                    <input type="text" value="<?php if ($judul == "Ubah Data Barang") {
+                                                                    echo $barang['harga_satuan'];
+                                                                } ?>"
                                         class="form-control <?= form_error('harga') ? 'is-invalid' : '' ?>"
                                         name="harga">
                                     <div class="invalid-feedback">
@@ -135,7 +160,9 @@
                         <div class="col-sm-7">
                             <div class="form-group">
                                 <label>*Tanggal Input</label>
-                                <input type="date"
+                                <input type="date" value="<?php if ($judul == "Ubah Data Barang") {
+                                                                echo $barang['tgl_input'];
+                                                            } ?>"
                                     class="form-control <?= form_error('tgl_input') ? 'is-invalid' : '' ?>"
                                     name="tgl_input" autocomplete="off">
                                 <div class="invalid-feedback">
@@ -149,9 +176,11 @@
                             <div class="card-footer">
                                 <button type="submit" name="submit" class="btn btn-outline-dark"><i
                                         class="fas fa-save "></i>
-                                    <span class="text-info font-weight-bold">Simpan</span>
+
+                                    <span
+                                        class="text-info font-weight-bold"><?= $judul == "Ubah Data Barang" ? 'Update' : 'Simpan' ?></span>
                                 </button>
-                                <a href="<?= base_url('databarang/kategori') ?>"> <button type="button"
+                                <a href="<?= base_url('databarang') ?>"> <button type="button"
                                         class="btn btn-outline-dark float-right"><span
                                             class="text-danger font-weight-bold">Kembali</span></button></a>
                             </div>

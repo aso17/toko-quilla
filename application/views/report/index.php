@@ -11,8 +11,9 @@
                         <form action="<?= base_url('report/hasil_report') ?>" method="post">
                             <!-- Date -->
                             <div class="form-group">
-                                <label>Tangal</label>
-                                <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                <label for="reservationdate">Tangal</label>
+                                <div id="awal" class="input-group date" id="reservationdate"
+                                    data-target-input="nearest">
                                     <input type="date" name="awal" class="form-control datetimepicker-input"
                                         data-target="#reservationdate" />
 

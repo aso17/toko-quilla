@@ -1,7 +1,7 @@
 <!-- right column -->
 <div class="col-md-10 pt-3 pl-3">
     <!-- general form elements disabled -->
-    <div class="card card-warning">
+    <div class="card card-secondary">
         <div class="card-header">
             <h5 class="">Form Tambah Barang</h5>
         </div>

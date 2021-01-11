@@ -73,7 +73,7 @@ class detail_m extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tb_detail');
-        $this->db->where('tgl_transaksi >=', $tgl_1);
+        $this->db->where('tgl_inpi >=', $tgl_1);
         $this->db->where('tgl_transaksi <=', $tgl_2);
         $query = $this->db->get();
         return $query->result();

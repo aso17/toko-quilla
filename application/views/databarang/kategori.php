@@ -14,7 +14,7 @@
                     <div class="card-header">
                         <?php if ($this->session->userdata('role') == "admin") { ?>
 
-                        <a href=" <?= base_url('databarang/tambahkategori') ?> ">
+                        <a href=" <?= base_url('kategori/tambahkategori') ?> ">
                             <button type="submit" name="submit" class="btn btn-outline-info"><i
                                     class="fas fa-plus-square mr-1 "></i>
                                 <span class="text-dark font-weight-bold"> Kategori

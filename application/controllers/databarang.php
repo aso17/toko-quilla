@@ -31,7 +31,8 @@ class databarang extends CI_Controller
 
 
             $data['kategori'] = $this->kategori_m->getAll();
-            $this->templates->load('layout/template', 'databarang/tambah_barang', $data);
+            $data['judul'] = "Tambah Barang";
+            $this->templates->load('layout/template', 'databarang/form_barang', $data);
         } else {
 
             $this->barang_m->tambah();
@@ -40,7 +41,24 @@ class databarang extends CI_Controller
         }
     }
 
+    public function edit($kode)
+    {
 
+        $data['judul'] = "Ubah Data Barang";
+        $data['kategori'] = $this->kategori_m->getAll();
+        $data['barang'] = $this->barang_m->getByid($kode);
+        $this->templates->load('layout/template', 'databarang/form_barang', $data);
+    }
+
+    public function editbarang()
+    {
+
+        $post = $this->input->post();
+        $this->barang_m->update($post);
+        $this->session->set_flashdata('success', 'Data Barang berhasil Ubah');
+
+        redirect('databarang', 'refresh');
+    }
 
     public function delete($id_barang)
     {
