@@ -63,18 +63,18 @@ class detail_m extends CI_Model
         $this->db->select('*');
         $this->db->from('tb_detail');
 
-        $this->db->join('tb_barang', 'tb_barang.kode_barang=tb_detail.kode_barang');
         $this->db->where('tb_detail.tgl_input >=', $tgl_awal);
-        $this->db->where('tb_detail.tgl_input >=', $tgl_ahir);
+        $this->db->where('tb_detail.tgl_input <=', $tgl_ahir);
 
+        $this->db->join('tb_barang', 'tb_barang.kode_barang=tb_detail.kode_barang');
         return $this->db->get()->result();
     }
     public function getAll_report($tgl_1, $tgl_2)
     {
         $this->db->select('*');
         $this->db->from('tb_detail');
-        $this->db->where('tgl_inpi >=', $tgl_1);
-        $this->db->where('tgl_transaksi <=', $tgl_2);
+        $this->db->where('tgl_input >=', $tgl_1);
+        $this->db->where('tgl_input <=', $tgl_2);
         $query = $this->db->get();
         return $query->result();
     }

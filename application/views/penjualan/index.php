@@ -1,174 +1,177 @@
 <!-- Main content -->
-
-<div class="container-fluid bg-secondary ">
-    <div class="row ">
-        <div class="col-md-12">
-            <div class="card mt-3 text-dark">
-                <div class="card-header ">
-
-
-                    <h3 class="text-info"><strong>Transaksi penjualan </strong></h3>
-
-                </div>
-                <div class="row mt-0">
-                    <div class="col-md-4 ">
+<div class="bg-secondary">
+    <div class="container-fluid ml-0 ">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mt-3 text-dark bg-info">
+                    <div class="card-header ">
 
 
-
-
-
+                        <h3 class="text-light"><strong>Transaksi penjualan </strong></h3>
 
                     </div>
-                    <div class="col-md ">
-                        <div class="card-header">
-                            <h5 class="text-info">Daftar Barang Toko Quilla Barang</h5>
-                        </div>
-                        <div class="card text-dark">
+                    <div class="row mt-0">
+                        <div class="col-md-3 ">
 
-                            <table id="tb_barang" class="table table-sm ">
-                                <thead>
-                                    <tr>
 
-                                        <th>#</th>
-                                        <th>Kode barang</th>
-                                        <th>Nama Barang</th>
-                                        <th>stok</th>
-                                        <th>harga</th>
-                                        <th></th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $i = 1; ?>
-                                    <?php foreach ($barang as $b) : ?>
-                                    <tr>
-                                        <td>
-                                            <?= $i++ ?>
-                                        </td>
-                                        <td>
-                                            <?= $b->kode_barang ?>
-                                        </td>
-
-                                        <td>
-                                            <?= $b->nama_barang ?>
-                                        </td>
-                                        <td><?= $b->jml_barang ?></td>
-                                        <td>
-                                            Rp. <?= number_format($b->harga_jual)  ?>
-                                        </td>
-                                        <td>
-                                            <a href="<?= base_url('penjualan/beli/') . $b->kode_barang ?>">
-                                                <button class="btn btn-dark btn-sm "><i class="fas fa-check-circle"></i>
-                                                    Pilih</button>
-                                            </a>
-                                        </td>
-
-                                    </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-
-                            </table>
 
 
 
 
                         </div>
-                    </div>
-
-
-
-
-                </div>
-
-                <div class="row   ">
-                    <div class="col-md-12">
-
-                        <div class="card ">
-                            <div class="card-header text-info ">
-                                <h5>Detail Transaksi</h5>
-
-                                <label for="">Tanggal</label>
-                                <input type="text" id="jamServer" value="<?= date('d-m-Y H:i'); ?>" readonly disabled>
+                        <div class="col-md-9 ">
+                            <div class="card-header">
+                                <h5 class="text-info">Daftar Barang Toko Quilla Barang</h5>
                             </div>
+                            <div class="card text-dark bg-dark">
 
-                            <table id="dataTble" style="" class="table table-sm text-dark" border="1">
-                                <thead class="">
+                                <table id="tb_barang" class="table table-sm ">
+                                    <thead>
+                                        <tr>
 
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Kode barang</th>
-                                        <th>Nama Barang</th>
-                                        <th>Jumlah Beli</th>
-                                        <th>harga</th>
-                                        <th>Total</th>
-                                        <th></th>
+                                            <th>#</th>
+                                            <th>Kode barang</th>
+                                            <th>Nama Barang</th>
+                                            <th>stok</th>
+                                            <th>harga</th>
+                                            <th></th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $i = 1; ?>
+                                        <?php foreach ($barang as $b) : ?>
+                                        <tr>
+                                            <td>
+                                                <?= $i++ ?>
+                                            </td>
+                                            <td>
+                                                <?= $b->kode_barang ?>
+                                            </td>
+
+                                            <td>
+                                                <?= $b->nama_barang ?>
+                                            </td>
+                                            <td><?= $b->jml_barang ?></td>
+                                            <td>
+                                                Rp. <?= number_format($b->harga_jual)  ?>
+                                            </td>
+                                            <td>
+                                                <a href="<?= base_url('penjualan/beli/') . $b->kode_barang ?>">
+                                                    <button class="btn btn-info btn-sm "><i
+                                                            class="fas fa-check-circle"></i>
+                                                        Pilih</button>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+
+                                </table>
 
 
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $i = 1; ?>
-                                    <?php foreach ($detail_transaksi as $transaksi) : ?>
-                                    <tr>
-                                        <td><?= $i++; ?>.</td>
-                                        <td><?= $transaksi->kode_barang ?></td>
-                                        <td><?= $transaksi->nama_barang ?></td>
-                                        <td><?= $transaksi->jumlah_beli ?></td>
-                                        <td>Rp.<?= number_format($transaksi->total_harga)  ?></td>
-                                        <td>Rp.<?= number_format($transaksi->total_harga)  ?>
-                                        </td>
-                                        <td><button
-                                                onclick="deleteConfirm('<?= base_url() . 'penjualan/hapus/'  . $kode . '-' . $transaksi->kode_barang ?>')"
-                                                class="btn btn-danger btn-sm bg-danger"><i
-                                                    class="fas fa-window-close"></i> Batalkan</button>
-                                        </td>
 
-                                    </tr>
+                            </div>
+                        </div>
 
-                                    <?php endforeach;  ?>
-                                    <tr class="">
-                                        <td colspan="5">
-                                            <h5 class="text-danger font-weight-bold"> <strong> Sub Total</strong>
-                                            </h5>
-                                        </td>
-                                        <td colspan="2" class="text-danger font-weight-bold">
-                                            <strong> Rp.<?= number_format($sub_total->total) ?></strong>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="row">
 
-                                <div class="col">
 
-                                    <a href="<?= base_url('penjualan/bayar/') . $sub_total->total ?>"> <button
-                                            class="btn btn-info btn-lg float-right mr-4 mb-2 mt-2 " type="button"
-                                            name="button"><i class="fas fa-money-check"></i>
-                                            bayar</button></a>
-                                    <?php $transaksi = $kode;
-                                    $i = 1;
-                                    $kode_transaksi = $transaksi - $i;
-                                    ?>
-                                    <a href="<?= base_url('penjualan/print/') . $kode_transaksi ?>"> <button
-                                            class="btn btn-dark btn-lg float-right mr-4 mb-2 mt-2 " type="button"
-                                            name="button"><i class="fas fa-print"></i>
-                                            print</button></a>
+
+                    </div>
+
+                    <div class="row   ">
+                        <div class="col-md-12">
+
+                            <div class="card bg-info">
+                                <div class="card-header text-light ">
+                                    <h5>Detail Transaksi</h5>
+
+                                    <label for="">Tanggal</label>
+                                    <input type="text" id="jamServer" value="<?= date('d-m-Y H:i'); ?>" readonly
+                                        disabled>
                                 </div>
-                            </div>
 
+                                <table id="dataTble" style="" class="table table-sm text-dark" border="1">
+                                    <thead class="">
+
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Kode barang</th>
+                                            <th>Nama Barang</th>
+                                            <th>Jumlah Beli</th>
+                                            <th>harga</th>
+                                            <th>Total</th>
+                                            <th></th>
+
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $i = 1; ?>
+                                        <?php foreach ($detail_transaksi as $transaksi) : ?>
+                                        <tr>
+                                            <td><?= $i++; ?>.</td>
+                                            <td><?= $transaksi->kode_barang ?></td>
+                                            <td><?= $transaksi->nama_barang ?></td>
+                                            <td><?= $transaksi->jumlah_beli ?></td>
+                                            <td>Rp.<?= number_format($transaksi->total_harga)  ?></td>
+                                            <td>Rp.<?= number_format($transaksi->total_harga)  ?>
+                                            </td>
+                                            <td><button
+                                                    onclick="deleteConfirm('<?= base_url() . 'penjualan/hapus/'  . $kode . '-' . $transaksi->kode_barang ?>')"
+                                                    class="btn btn-danger btn-sm bg-danger"><i
+                                                        class="fas fa-window-close"></i> Batalkan</button>
+                                            </td>
+
+                                        </tr>
+
+                                        <?php endforeach;  ?>
+                                        <tr class="">
+                                            <td colspan="5">
+                                                <h5 class="text-danger font-weight-bold"> <strong> Sub Total</strong>
+                                                </h5>
+                                            </td>
+                                            <td colspan="2" class="text-danger font-weight-bold">
+                                                <strong> Rp.<?= number_format($sub_total->total) ?></strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row">
+
+                                    <div class="col">
+
+                                        <a href="<?= base_url('penjualan/bayar/') . $sub_total->total ?>"> <button
+                                                class="btn btn-warning btn-lg float-right mr-4 mb-2 mt-2 " type="button"
+                                                name="button"><i class="fas fa-money-check"> Bayar</i>
+                                            </button></a>
+                                        <?php $transaksi = $kode;
+                                        $i = 1;
+                                        $kode_transaksi = $transaksi - $i;
+                                        ?>
+                                        <a href="<?= base_url('penjualan/print/') . $kode_transaksi ?>"> <button
+                                                class="btn btn-dark btn-lg float-right mr-4 mb-2 mt-2 " type="button"
+                                                name="button"><i class="fas fa-print"></i>
+                                                Print</button></a>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
+
+
+
+
                     </div>
 
-
-
-
                 </div>
-
             </div>
-        </div>
-        <!-- /.row -->
-    </div><!-- /.container-fluid -->
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
 </div>
 <!-- /.content -->
 <!--Delete Confirmation-->

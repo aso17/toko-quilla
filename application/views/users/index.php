@@ -32,6 +32,7 @@
                                     <th>NIk</th>
                                     <th class="text-center">foto</th>
                                     <th>role</th>
+                                    <th style="width:7px"></th>
 
                                 </tr>
                             </thead>
@@ -47,6 +48,9 @@
                                     </td>
 
                                     <td><?= $us->role; ?></td>
+                                    <td><button class="btn btn-outline-danger btn-sm"
+                                            onclick="deleteConfirm('<?= base_url() . 'users/delete/' . $us->id_user ?>')"><i
+                                                class="fa fa-trash-alt"> Hapus</i> </button></td>
 
                                 </tr>
                                 <?php endforeach; ?>

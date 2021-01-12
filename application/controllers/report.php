@@ -23,7 +23,10 @@ class report extends CI_Controller
         $kondisi['tgl_input <='] = $this->input->post('ahir');
         $data['tgl_awal'] = $this->input->post('awal');
         $data['tgl_ahir'] = $this->input->post('ahir');
-        $data['laporan'] = $this->detail_m->laporan($_POST['awal'], $_POST['ahir']);
+        $post = $this->input->post();
+        $tgl_awal = $post['awal'];
+        $tgl_ahir = $post['ahir'];
+        $data['laporan'] = $this->detail_m->laporan($tgl_awal, $tgl_ahir);
         $data['total'] = $this->detail_m->total('tb_detail', 'total_harga', $kondisi)->row();
 
         $this->templates->load('layout/template', 'report/hasil_report', $data);
@@ -48,6 +51,8 @@ class report extends CI_Controller
         // mencetak string 
 
         $pdf->Cell(190, 7, 'Toko Quila', 0, 1, 'L');
+        $pdf->SetFont('Arial', 'B', 8);
+        $pdf->Cell(190, 7, 'Jl.Jl.kadu Rt/RW 001/002 kec.Curug Tangerang', 0, 1, 'L');
         $pdf->SetFont('Arial', 'B', 12);
 
         $pdf->SetFont('Arial', 'B', 12);

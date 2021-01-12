@@ -42,6 +42,14 @@ class users extends CI_Controller
             redirect('users');
         }
     }
+
+    public function delete($id_user)
+    {
+        $this->users_m->hapus($id_user);
+        $this->session->set_flashdata('success', 'Data User Berhasil Di Hapus');
+
+        redirect('users', 'refresh');
+    }
     public function logout()
     {
         $this->session->unset_userdata('id_user');

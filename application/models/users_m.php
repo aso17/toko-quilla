@@ -49,4 +49,8 @@ class users_m extends CI_Model
         $query = $this->db->get()->row_array();
         return $query;
     }
+    public function hapus($id_user)
+    {
+        return $this->db->delete('tb_user', ['id_user' => $id_user]);
+    }
 }

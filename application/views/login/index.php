@@ -99,9 +99,9 @@
 $(function() {
     const Toast = Swal.mixin({
         toast: true,
-        position: 'top',
+        position: '',
         showConfirmButton: false,
-        timer: 10000
+        timer: 1000
     });
     <?php if ($this->session->flashdata('success')) { ?>
     Toast.fire({

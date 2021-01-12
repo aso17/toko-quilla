@@ -6,12 +6,17 @@
             <div class="col-md-10 mt-3">
                 <div class="card">
 
-
-                    <div class="row justify-center mt-3 text-center mx-3">
+                    <div class="row justify-center mt-3  mx-3">
                         <div class="col-md-12">
-                            <h4 class="text-info text-center"> <strong class="">Hasil Laporan Penjualan</strong>
+
+
+
+                            <h4 class="text-info"> <strong>T</strong>oko <strong>Q</strong>uilla
                             </h4>
-                            <div class="form-group">
+                            <p class="text-info font-bold "> Jl.kadu Rt/RW 001/002 kec.Curug Tangerang</p>
+                            <h4 class="text-info text-center"> <strong class="">Hasil Laporan Penjualan</strong></h4>
+
+                            <div class="form-group text-center">
                                 <label class=" text-info">Tangal</label>
                                 <div>
                                     <p class=" text-info"><?= $this->input->post('awal') ?></p>
@@ -27,13 +32,14 @@
                                 <button class="btn btn-outline-info text-dark btn-sm dropdown-toggle font-weight-bold"
                                     type="button" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">Export Laporan</button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item text-dark"
+                                <div class="dropdown-menu bg-dark">
+                                    <a class="dropdown-item text-dark "
                                         href="<?= base_url('report/cetak_pdf/') . $tgl_awal . '/' . $tgl_ahir ?>"
-                                        target="_blank"><i class="fas fa-file-pdf"></i>cetak pdf</a>
-                                    <a class="dropdown-item text-success"
-                                        href="<?= base_url('Laporan/cetak_excel/') ?>"><i
-                                            class="fas fa-file-excel"></i>Cetak Exel</a>
+                                        target="_blank"><i class="fas fa-file-pdf "></i> Cetak pdf</a>
+                                    <!-- <a class="dropdown-item text-success"
+                                        href="<?php //base_url('Laporan/cetak_excel/') 
+                                                ?>"><i
+                                            class="fas fa-file-excel"></i>Cetak Exel</a> -->
                                 </div>
                             </div>
                         </div>
@@ -43,7 +49,7 @@
 
 
                     <table class="table pl-3 pr-3" id="report" border="1">
-                        <thead class="bg-secondary">
+                        <thead class="bg-secondary" border="1">
 
                             <tr>
 

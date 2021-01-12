@@ -1,11 +1,11 @@
 <!-- Main content -->
 <div class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-5 mt-3">
-                <div class="card card card-info card-outline">
+    <div class="container-fluid ">
+        <div class="row mx-auto ">
+            <div class="col-md-5 mt-5">
+                <div class="card card card-info bg-info card-outline">
                     <div class="card-header">
-                        <h3 class="card-title text-info"> <strong>Laporan Penjualan</strong> </h3>
+                        <h3 class="card-title text-light"> <strong>Laporan Penjualan</strong> </h3>
                     </div>
                     <div class="card-body">
                         <form action="<?= base_url('report/hasil_report') ?>" method="post">
@@ -26,14 +26,16 @@
                                 </div>
                             </div>
 
-                            <button class="btn btn-outline-dark font-bold float-right text-info" type="submit"
+                            <button class="btn btn-outline-dark font-bold float-right text-light" type="submit"
                                 name="cetak">Print Preview</button>
 
                     </div>
                     </form>
                     <!-- /.card-body -->
+                    <div class="alert alert-warning text-center font-bold mx-3" role="alert">
+                        info : isilah data dengan benar
+                    </div>
                 </div>
-
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->

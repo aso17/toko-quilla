@@ -8,35 +8,29 @@
 
             </div>
         </div>
-        <div class="row mt-3">
+        <div class="row pt-3 bg-secondary">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="text-info">Laporan Barang Belum Terjual</h3>
+                    <div class="card-header  bg-info">
+                        <h4 class="text-dark"> <strong>T</strong>oko <strong>Q</strong>uilla
+                        </h4>
+                        <p class="text-dark font-bold "> Jl.kadu Rt/RW 001/002 kec.Curug Tangerang</p>
+                        <h4 class="text-dark text-center"> <strong class="">Laporan Brang Belum Terjual</strong></h4>
                         <div class="d-flex justify-content-center  float-right mb-2 mr-5 ">
-                            <button class="btn btn-outline-info text-dark btn-sm dropdown-toggle font-weight-bold"
+                            <button class="btn btn-dark text-light btn-sm dropdown-toggle font-weight-bold"
                                 type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Export
                                 Laporan</button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item text-dark" href="<?= base_url('Laporan/cetak_pdf/') ?>"
                                     target="_blank"><i class="fas fa-file-pdf"></i>cetak pdf</a>
-                                <a class="dropdown-item text-success" href="<?= base_url('Laporan/cetak_excel/') ?>"><i
-                                        class="fas fa-file-excel"></i>Cetak Exel</a>
+
                             </div>
                         </div>
-                        <?php if ($this->session->userdata('role') == "admin") { ?>
-                        <a href=" <?= base_url('databarang/tambah_barang') ?> ">
-                            <button type="submit" name="submit" class="btn btn-outline-info"><i
-                                    class="fas fa-plus-square mr-1 "></i>
-                                <span class="text-dark font-weight-bold">Insert Barang</span>
-                            </button>
 
-                        </a>
-                        <?php } ?>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
-                        <table class="table table-hover text-nowrap" id="barang">
+                        <table class="table table-hover text-nowrap " id="barang_blmterjual">
                             <thead>
                                 <tr class="text-dark">
                                     <?php $i = 1; ?>
@@ -49,11 +43,11 @@
                                     <th>Warna</th>
                                     <th>Stok</th>
 
-                                    <th>Harga </th>
+                                    <th>Harga Jual</th>
 
                                 </tr>
                             </thead>
-                            <tbody class="text-dark">
+                            <tbody class="text-dark font-bold">
                                 <?php foreach ($barang as $bar) : ?>
                                 <tr>
                                     <td><?= $i++ ?>.</td>
@@ -90,7 +84,7 @@
 <script>
 $(function() {
 
-    $("#barang").DataTable({
+    $("#barang_blmterjual").DataTable({
         "responsive": true,
         "autoWidth": false,
         "info": true,
