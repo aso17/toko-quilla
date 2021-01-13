@@ -87,6 +87,12 @@ class users extends CI_Controller
             }
         }
     }
+    public function get()
+    {
+        $user = $this->users_m->getAll();
+        $data = ['users' => $user];
+        return $data['users'];
+    }
     public function logout()
     {
         $this->session->unset_userdata('id_user');

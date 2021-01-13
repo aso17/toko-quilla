@@ -66,14 +66,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a class="nav-link text-light" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link  font-weight-bold text-light">Home</a>
+                <li class=" nav-item d-none d-sm-inline-block">
+                    <a href="<?= base_url('dashboard') ?>"
+                        class=" btn btn-outline-dark nav-link mr-2 font-weight-bold text-light">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block ">
-                    <a href="#" class="nav-link font-weight-bold text-light">Contact</a>
+                    <a href="" class="btn btn-outline-dark nav-link font-weight-bold text-light " id=detail-barang
+                        data-toggle="modal" data-target="#modal">Contact</a>
                 </li>
             </ul>
-
 
         </nav>
         <!-- /.navbar -->
@@ -267,11 +268,47 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </footer>
     </div> <!-- ./wrapper -->
     <!-- Alert Config -->
+
+
+    <div class="modal fade  text-light" id="modal" role="dialog">
+        <div class="modal-dialog sm" role="document">
+            <div class="modal-content" style="background-color:#191970;">
+                <?php $this->db->select('*');
+                $this->db->from('tb_user');
+                $query = $this->db->get()->result();
+
+                //return $query;  
+                // $data['users'] = $query;
+
+                ?>
+                <div class="modal-header" style="background-color:#191970;">
+                    <button type="button" class="close btn btn-danger text-light" data-dismiss="modal">&times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4 class="modal-title">Kontak Users</h4>
+                    <div class="card">
+
+
+                    </div>
+                    <?php foreach ($query as $u) : ?>
+                    <ul class="list-group">
+                        <li class="ml-3"><?= $u->nama_lengkap ?></li>
+                        <li class="list-group-item mt-0 bg-secondary">
+                            <p id="nama"><?= $u->no_telpon ?></p>
+                        </li>
+
+                    </ul>
+
+                    <?php endforeach; ?>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript">
-    function logConfirm(url) {
-        $('#btn-log').attr('href', url);
-        $('#logoutmodal').modal();
-    }
+
     </script>
     <script type="text/javascript">
     $(function() {

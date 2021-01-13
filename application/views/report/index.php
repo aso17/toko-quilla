@@ -2,39 +2,54 @@
 <div class="content">
     <div class="container-fluid ">
         <div class="row mx-auto ">
-            <div class="col-md-5 mt-5">
-                <div class="card card card-info bg-info card-outline">
-                    <div class="card-header">
-                        <h3 class="card-title text-light"> <strong>Laporan Penjualan</strong> </h3>
+            <div class="col-md-12 mt-5">
+                <div class="card card  card-outline">
+                    <div class="card-header bg-secondary">
+                        <h3 class=" text-light"> <strong>Laporan Penjualan</strong> </h3>
                     </div>
-                    <div class="card-body">
-                        <form action="<?= base_url('report/hasil_report') ?>" method="post">
-                            <!-- Date -->
-                            <div class="form-group">
-                                <label for="reservationdate">Tangal</label>
-                                <div id="awal" class="input-group date" id="reservationdate"
-                                    data-target-input="nearest">
-                                    <input type="date" name="awal" class="form-control datetimepicker-input"
-                                        data-target="#reservationdate" />
+                    <div class="card-body bg-secondary">
 
-                                </div>
-                                <label>Sampai Tanggal </label>
-                                <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                    <input type="date" name="ahir" class="form-control datetimepicker-input"
-                                        data-target="#reservationdate" />
+                        <div class="row mb-5 pb-5">
+                            <div class="col-md-4 bg-info pt-3 ml-3 pl-3 pr-3">
+                                <form action="<?= base_url('report/hasil_report') ?>" method="post">
+                                    <!-- Date -->
+                                    <div class="form-group">
+                                        <label for="reservationdate">Tangal</label>
+                                        <div id="awal" class="input-group date" id="reservationdate"
+                                            data-target-input="nearest">
+                                            <input type="date" name="awal" class="form-control datetimepicker-input"
+                                                data-target="#reservationdate" required />
 
+                                        </div>
+                                        <label>Sampai Tanggal </label>
+                                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                            <input type="date" name="ahir" class="form-control datetimepicker-input"
+                                                data-target="#reservationdate" required />
+
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-outline-dark font-bold float-right text-light mb-5"
+                                        type="submit" name="cetak">Print Preview</button>
+
+                                </form>
+
+
+
+                                <div class="card-footer text-muted">
+                                    <div class="alert alert-warning text-center mt-5 pt-" role="alert">
+                                        info : Isilah data Dengan Benar!
+                                    </div>
                                 </div>
+
                             </div>
+                        </div>
 
-                            <button class="btn btn-outline-dark font-bold float-right text-light" type="submit"
-                                name="cetak">Print Preview</button>
+
 
                     </div>
-                    </form>
+
                     <!-- /.card-body -->
-                    <div class="alert alert-warning text-center font-bold mx-3" role="alert">
-                        info : isilah data dengan benar
-                    </div>
                 </div>
             </div>
             <!-- /.row -->

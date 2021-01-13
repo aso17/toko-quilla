@@ -3,10 +3,11 @@
         <div class="row">
 
 
-            <div class="col-md-10 mt-3">
+            <div class="col-md-12 mt-3">
                 <div class="card">
 
                     <div class="row justify-center mt-3  mx-3">
+
                         <div class="col-md-12">
 
 
