@@ -209,7 +209,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             </li>
                             <li class="nav-item ">
-                                <a href="<?= base_url('Dashboard') ?>"
+                                <a href="<?= base_url('users/ubah_password') ?>"
                                     class="nav-link <?= $this->uri->segment(1) == 'setting' ? 'active bg-danger' : '' ?> font-bold text-light">
                                     <p>
                                         <i class="fas fa-cogs text-info"></i>

@@ -78,4 +78,14 @@ class detail_m extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function penjualan($kode_jual)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_detail');
+        $this->db->where('id_transaksi', $kode_jual);
+        $this->db->join('tb_barang', 'tb_barang.kode_barang=tb_detail.kode_barang');
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

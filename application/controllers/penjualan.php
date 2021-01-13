@@ -115,4 +115,64 @@ class Penjualan extends CI_Controller
         $this->session->set_flashdata('success', 'pembayaran berhasil');
         redirect('penjualan');
     }
+
+    public function print($kode_jual)
+    {
+        $this->load->library('pdf');
+        $pdf = new FPDF('l', 'mm', 'A5');
+        // membuat halaman baru
+        $pdf->AliasNbPages();
+        $pdf->AddPage();
+        $pdf->SetFont('Times', 'U', 12);
+
+        $pdf->SetTitle('Cetak pembelian');
+        // setting jenis font yang akan digunakan
+        $pdf->SetFont('Arial', 'B', 16);
+        // mencetak string 
+
+        $pdf->Cell(190, 7, 'Toko Quila', 0, 1, 'L');
+        $pdf->SetFont('Arial', 'B', 8);
+        $pdf->Cell(190, 7, 'Jl.Jl.kadu Rt/RW 001/002 kec.Curug Tangerang', 0, 1, 'L');
+        $pdf->SetFont('Arial', 'B', 12);
+
+        $pdf->SetFont('Arial', '', 9);
+        $pdf->Cell(190, 7, 'Tanggal Pembelian :' . date('l/d/m/y'), 0, 1, 'L');
+        // $pdf->Cell(190, 7, , 0, 1, 'R');
+        $pdf->Setfont('Arial', '', 11);
+        $pdf->Cell(190, 7, '', 0, 1, 'L');
+        $pdf->Cell(190, 7, 'Kasir :' . $this->session->userdata('nama_lengkap'), 0, 1, 'R');
+
+        // Memberikan space kebawah agar tidak terlalu rapat
+        $pdf->Cell(8, 7, '', 0, 1);
+        $pdf->SetFont('Arial', 'B', 10);
+        //lebar,tinggi,br
+        $pdf->Cell(10, 6, 'No', 1, 0);
+        $pdf->Cell(30, 6, 'kode transaksi', 1, 0);
+        $pdf->Cell(30, 6, 'kode barang', 1, 0);
+        $pdf->Cell(40, 6, 'Nama Barang', 1, 0);
+        $pdf->Cell(40, 6, 'Tanggal pembelian', 1, 0);
+        $pdf->Cell(40, 6, 'total harga', 1, 1);
+
+        $pdf->SetFont('Arial', '', 10);
+
+        $penjualan = $this->detail_m->penjualan($kode_jual);
+        $kondisi['id_transaksi'] = $kode_jual;
+        $grand = $this->detail_m->total('tb_detail', 'total_harga', $kondisi)->row();
+
+        $i = 1;
+        foreach ($penjualan as $row) {
+            $pdf->Cell(10, 6, $i++, 1, 0);
+            $pdf->Cell(30, 6, $row->id_transaksi, 1, 0);
+            $pdf->Cell(30, 6, $row->kode_barang, 1, 0);
+            $pdf->Cell(40, 6, $row->nama_barang, 1, 0);
+            $pdf->Cell(40, 6, $row->tgl_input, 1, 0);
+            $pdf->Cell(40, 6, 'Rp.' . number_format($row->total_harga), 1, 1);
+        }
+        $pdf->Cell(150, 6, 'Total Pembelian', 1, 0);
+        $pdf->Cell(40, 6, 'Rp.' . number_format($grand->total), 1, 1);
+        $pdf->Cell(8, 5, '', 0, 1);
+        $pdf->Setfont('Arial', 'B', 11);
+        $pdf->Cell(190, 7, 'Terima Kasih ... Selamat Belanja Kembali', 0, 1, 'C');
+        $pdf->Output();
+    }
 }

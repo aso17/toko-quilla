@@ -154,7 +154,7 @@
                                         ?>
                                         <a href="<?= base_url('penjualan/print/') . $kode_transaksi ?>"> <button
                                                 class="btn btn-dark btn-lg float-right mr-4 mb-2 mt-2 " type="button"
-                                                name="button"><i class="fas fa-print"></i>
+                                                target="_blank" name="button"><i class="fas fa-print"></i>
                                                 Print</button></a>
                                     </div>
                                 </div>

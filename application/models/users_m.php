@@ -53,4 +53,12 @@ class users_m extends CI_Model
     {
         return $this->db->delete('tb_user', ['id_user' => $id_user]);
     }
+    public function get_byid($id_user)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_user');
+        $this->db->where('id_user', $id_user);
+        $query = $this->db->get()->row_array();
+        return $query;
+    }
 }

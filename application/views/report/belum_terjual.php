@@ -15,7 +15,7 @@
                         <h4 class="text-dark"> <strong>T</strong>oko <strong>Q</strong>uilla
                         </h4>
                         <p class="text-dark font-bold "> Jl.kadu Rt/RW 001/002 kec.Curug Tangerang</p>
-                        <h4 class="text-dark text-center"> <strong class="">Laporan Brang Belum Terjual</strong></h4>
+                        <h5 class="text-dark text-center"> <strong class="">Laporan Brang Belum Terjual</strong></h5>
                         <div class="d-flex justify-content-center  float-right mb-2 mr-5 ">
                             <button class="btn btn-dark text-light btn-sm dropdown-toggle font-weight-bold"
                                 type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Export

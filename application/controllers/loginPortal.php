@@ -20,7 +20,7 @@ class loginPortal extends CI_Controller
             $post = $this->input->post();
             $username = $post['username'];
             $users = $this->users_m->get_input_post($username);
-            var_dump($users);
+            //var_dump($users);
 
             if ($users != null) {
                 $pass = $this->input->post('password');
