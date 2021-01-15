@@ -35,7 +35,13 @@ class users extends CI_Controller
 
             $this->templates->load('layout/template', 'users/tambah');
         } else {
-
+            $post = $this->input->post();
+            $nik = $post['nik'];
+            $user = $this->users_m->getBynik($nik);
+            if ($user == true) {
+                $this->session->set_flashdata('error', 'User Sudah Terdaftar');
+                redirect('users/tambah');
+            }
             $this->users_m->tambah();
 
             $this->session->set_flashdata('success', 'Data users berhasil di tambah');

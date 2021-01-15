@@ -44,6 +44,14 @@ class barang_m extends CI_Model
         ];
         $this->db->insert('tb_barang', $data);
     }
+    public function getBykode($kode)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_barang');
+        $this->db->where('kode_barang', $kode);
+        $query = $this->db->get()->row();
+        return $query;
+    }
     public function update($post)
     {
         $data = [
@@ -83,5 +91,27 @@ class barang_m extends CI_Model
             NOT IN (SELECT kode_barang FROM tb_detail )"
         );
         return $query->result();
+    }
+
+    public function export()
+    {
+
+        $query = $this->db->query(
+            "SELECT * FROM tb_barang WHERE kode_barang 
+            NOT IN (SELECT kode_barang FROM tb_detail )"
+        );
+        // $this->db->join('tb_kategori', 'tb_kategori.id_kategori=tb_barang.id_kategori');
+        return $query->result();
+    }
+    public function grand_total()
+    {
+        // $this->db->select('SUM(' . 'total' . ') as total');
+        // return $this->db->get();
+        $query = $this->db->query(
+            "SELECT * ,SUM(tb_barang.total) as tot FROM tb_barang WHERE kode_barang 
+            NOT IN (SELECT kode_barang FROM tb_detail )"
+        );
+
+        return $query->row();
     }
 }

@@ -96,11 +96,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="text-center">
                     <div class="brand-image mx-auto">
                         <img src="<?= base_url() . 'assets/images/user/' . $this->session->userdata('image') ?>"
-                            class=" mx-auto d-block" alt="User Image" width="100px;" height="100px"
+                            class=" mx-auto d-block" alt="User Image" width="50px;" height="50px"
                             style="border-radius: 50%;">
-                        <p class="text-light font-weight-bold mt-3 mx-4 ">
+                        <p class="text-light font-weight-bold mt-2 mx-4 ">
                             <?= $this->session->userdata('nama_lengkap') ?></p>
-                        <p class="text-light font-weight-bold "><?= $this->session->userdata('role') ?></p>
+                        <p class="text-light font-weight-bold  "><?= $this->session->userdata('role') ?></p>
                     </div>
 
                 </div>

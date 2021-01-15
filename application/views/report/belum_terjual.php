@@ -21,7 +21,7 @@
                                 type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Export
                                 Laporan</button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item text-dark" href="<?= base_url('Laporan/cetak_pdf/') ?>"
+                                <a class="dropdown-item text-dark" href="<?= base_url('report/exportPdf') ?>"
                                     target="_blank"><i class="fas fa-file-pdf"></i>cetak pdf</a>
 
                             </div>

@@ -10,7 +10,7 @@
                     <div class="card-body bg-secondary">
 
                         <div class="row mb-5 pb-5">
-                            <div class="col-md-4 bg-info pt-3 ml-3 pl-3 pr-3">
+                            <div class="col-md-6 bg-info pt-3 ml-3 pl-3 pr-3">
                                 <form action="<?= base_url('report/hasil_report') ?>" method="post">
                                     <!-- Date -->
                                     <div class="form-group">

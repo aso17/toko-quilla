@@ -34,7 +34,13 @@ class databarang extends CI_Controller
             $data['judul'] = "Tambah Barang";
             $this->templates->load('layout/template', 'databarang/form_barang', $data);
         } else {
-
+            $post = $this->input->post();
+            $kode = $post['kd_barang'];
+            $barang = $this->barang_m->getBykode($kode);
+            if ($barang == true) {
+                $this->session->set_flashdata('error', 'Barang sudah tersedia');
+                redirect('databarang/tambah_barang');
+            }
             $this->barang_m->tambah();
             $this->session->set_flashdata('success', 'Data barang berhasil di tambah');
             redirect('databarang');

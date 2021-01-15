@@ -9,6 +9,15 @@ class users_m extends CI_Model
         $query = $this->db->get()->result();
         return $query;
     }
+
+    public function getBynik($nik)
+    {
+        $this->db->select('*');
+        $this->db->from('tb_user');
+        $this->db->where('nik_ktp', $nik);
+        $query = $this->db->get()->result();
+        return $query;
+    }
     public function tambah()
     {
 
