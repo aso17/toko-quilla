@@ -72,4 +72,5 @@ class databarang extends CI_Controller
         $this->session->set_flashdata('success', 'Data Barang berhasil di hapus');
         redirect('databarang');
     }
+    
 }
