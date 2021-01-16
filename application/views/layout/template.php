@@ -85,7 +85,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="" class="brand-link  text-light">
                 <img src="<?= base_url() . 'assets/images/logo.png' ?>" alt="Aqila Logo"
                     class="brand-image img-circle elevation-3" style="opacity: 17">
-                <span class="brand-text font-weight-bold">Toko.Quilla</span><br>
+                <span class="brand-text font-weight-bold"><strong>T</strong>oko <strong>Q</strong>uilla</span><br>
 
 
             </a>
@@ -96,14 +96,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="text-center">
                     <div class="brand-image mx-auto">
                         <img src="<?= base_url() . 'assets/images/user/' . $this->session->userdata('image') ?>"
-                            class=" mx-auto d-block" alt="User Image" width="50px;" height="50px"
+                            class=" mx-auto d-block" alt="User Image" width="60px;" height="60px"
                             style="border-radius: 50%;">
-                        <p class="text-light font-weight-bold mt-2 mx-4 ">
-                            <?= $this->session->userdata('nama_lengkap') ?></p>
-                        <p class="text-light font-weight-bold  "><?= $this->session->userdata('role') ?></p>
+                        <p class="text-warning fw-light pt-3  mx-4 ">
+                            <?= $this->session->userdata('role') ?></p>
+                        <p class="text-warning fw-light  "><?= $this->session->userdata('nama_lengkap') ?></p>
                     </div>
 
                 </div>
+                <hr class="font-monospace">
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
@@ -111,16 +112,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         data-accordion="false">
                         <li class="nav-item ">
                             <a href="<?= base_url('dashboard') ?>"
-                                class="nav-link <?= $this->uri->segment(1) == 'dashboard' ? 'active bg-danger' : '' ?> font-bold text-light">
+                                class="nav-link <?= $this->uri->segment(1) == 'dashboard' ? 'active bg-danger' : '' ?> fst-normal text-light">
                                 <p>
-                                    <i class="nav-icon fa fa-tachometer-alt text-info"></i>
+                                    <i class="fas fa-igloo text-info"></i>
                                     Dashboard
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('user') ?>"
-                                class="nav-link font-bold <?= $this->uri->segment(1) == 'databarang' ? 'active bg-danger' : '' ?> font-bold text-light">
+                                class="nav-link font-bold <?= $this->uri->segment(1) == 'databarang' ? 'active bg-danger' : '' ?> fst-normal text-light">
                                 <i class="fas fa-angle-left right"></i>
                                 <i class="fas fa-pager text-info"></i>
                                 <p>

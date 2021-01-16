@@ -1,29 +1,75 @@
 <!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2 ">
-            <div class="col-sm-6">
 
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-</div>
-<!-- /.content-header -->
 <!-- Main content -->
 <div class="content ">
     <div class="container-fluid  ">
-        <div class="row">
+        <div class="row mt">
             <div class="col-md-12">
-                <div class="jumbotron">
-                    <h5 class="display-4"></h5>
-                    <h4 class="lead font-bold"> <strong class="text-bold">Selamat datang</strong>
-                        <?= $this->session->userdata('nama_lengkap'); ?>
-                    </h4>
-                    <hr class="my-4">
-                    <p class="lead"></p>
+                <div class=" pt-3 pl-3 pr-3 ">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="info-box">
+
+                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-tablet-alt"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text text-dark">Qty Product</span>
+                                    <span class="info-box-number">
+                                        10
+
+                                    </span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+
+                        <!-- /.col -->
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="info-box mb-3">
+                                <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-qrcode"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text text-dark">Category Pruduct</span>
+                                    <span class="info-box-number">41,410</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+
+                        <!-- fix for small devices only -->
+                        <div class="clearfix hidden-md-up"></div>
+
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="info-box mb-3">
+                                <span class="info-box-icon bg-success elevation-1"><i
+                                        class="fas fa-shopping-cart"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text text-dark">Barang Terjual</span>
+                                    <span class="info-box-number mt-2">760</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="info-box mb-3">
+                                <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text text-dark">Jumlah Pelangan</span>
+                                    <span class="info-box-number">2,000</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
 
 
 

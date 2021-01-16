@@ -17,14 +17,16 @@
                                         <label for="reservationdate">Tangal</label>
                                         <div id="awal" class="input-group date" id="reservationdate"
                                             data-target-input="nearest">
-                                            <input type="date" name="awal" class="form-control datetimepicker-input"
-                                                data-target="#reservationdate" required />
+                                            <input type="date" id="reservationdate" name="awal"
+                                                class="form-control datetimepicker-input" data-target="#reservationdate"
+                                                required />
 
                                         </div>
-                                        <label>Sampai Tanggal </label>
-                                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                            <input type="date" name="ahir" class="form-control datetimepicker-input"
-                                                data-target="#reservationdate" required />
+                                        <label for="reservationdat">Sampai Tanggal </label>
+                                        <div class="input-group date" data-target-input="nearest">
+                                            <input type="date" name="ahir" id="reservationdat"
+                                                class="form-control datetimepicker-input" data-target="#reservationdate"
+                                                required />
 
                                         </div>
                                     </div>

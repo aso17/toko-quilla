@@ -53,22 +53,24 @@ class report extends CI_Controller
         $pdf->Cell(190, 7, 'Toko Quila', 0, 1, 'L');
         $pdf->SetFont('Arial', 'B', 8);
         $pdf->Cell(190, 7, 'Jl.Jl.kadu Rt/RW 001/002 kec.Curug Tangerang', 0, 1, 'L');
-        $pdf->SetFont('Arial', 'B', 12);
+        // $pdf->SetFont('Arial', 'B', 12);
 
-        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->SetFont('Arial', 'B', 10);
         $pdf->Cell(190, 7, ' LAPORAN PENJUALAN ', 0, 1, 'C');
-        $pdf->Setfont('Arial', 'B', 11);
+        $pdf->Setfont('Arial', 'B', 9);
         $pdf->Cell(190, 7, 'Tanggal', 0, 1, 'C');
         $pdf->Cell(190, 7, $tgl_awal, 0, 1, 'C');
-        $pdf->Cell(190, 7, 's/d', 0, 1, 'C');
+        $pdf->Cell(190, 7, 's/d Tanggal', 0, 1, 'C');
         $pdf->Cell(190, 7, $tgl_ahir, 0, 1, 'C');
+
+        $pdf->Cell(190, 7, 'Tanggal cetak :' . date('l/d/m/y'), 0, 1, 'c');
         $pdf->Cell(190, 7, 'User :' . $this->session->userdata('nama_lengkap'), 0, 1, 'R');
 
 
 
 
         // Memberikan space kebawah agar tidak terlalu rapat
-        $pdf->Cell(10, 7, '', 0, 1);
+        $pdf->Cell(10, 2, '', 0, 1);
         $pdf->SetFont('Arial', 'B', 10);
         //lebar,tinggi,br
         $pdf->Cell(10, 6, 'No', 1, 0);
@@ -92,7 +94,7 @@ class report extends CI_Controller
             $pdf->Cell(30, 6, $row->kode_barang, 1, 0);
             $pdf->Cell(40, 6, $row->nama_barang, 1, 0);
             $pdf->Cell(40, 6, $row->tgl_input, 1, 0);
-            $pdf->Cell(40, 6, number_format($row->total_harga), 1, 1);
+            $pdf->Cell(40, 6, 'Rp.' . number_format($row->total_harga), 1, 1);
         }
         $pdf->Cell(150, 6, 'Total Penjualan', 1, 0);
         $pdf->Cell(40, 6, number_format($grand->total), 1, 1);
@@ -101,7 +103,7 @@ class report extends CI_Controller
     public function exportPdf()
     { {
             $this->load->library('pdf');
-            $pdf = new FPDF('l', 'mm', 'A5');
+            $pdf = new FPDF('l', 'mm', 'A4');
             // membuat halaman baru
             $pdf->AliasNbPages();
             $pdf->AddPage();
