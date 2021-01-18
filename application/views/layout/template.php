@@ -315,9 +315,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     $(function() {
         const Toast = Swal.mixin({
             toast: true,
-            // position: 'top-end',
-            showConfirmButton: true,
-            timer: 10000
+            position: 'top-center',
+            showConfirmButton: false,
+            timer: 2000
         });
         <?php if ($this->session->flashdata('success')) { ?>
         Toast.fire({

@@ -15,7 +15,7 @@ class detail_m extends CI_Model
 
             'kode_barang' =>  $id,
             'id_transaksi' => $kode_jual,
-            'tgl_input'    => date('y-m-d'),
+            'tgl_input'    => date("Y.m.d"),
             'jumlah_beli'    => $jml_beli,
             'total_harga'    => $harga
         ];
@@ -88,5 +88,4 @@ class detail_m extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-    
 }

@@ -38,7 +38,7 @@ class barang_m extends CI_Model
             "jml_barang" => $post['jml_barang'],
             "merk" => $post['merk'],
             "harga_satuan" => $post['harga'],
-            "tgl_input" => $post['tgl_input'],
+            "tgl_creat" => $post['tgl_input'],
             "total" => $total,
             "harga_jual" => $untung,
         ];
@@ -63,7 +63,7 @@ class barang_m extends CI_Model
             "jml_barang" => $post['jml_barang'],
             "merk" => $post['merk'],
             "harga_satuan" => $post['harga'],
-            "tgl_input" => $post['tgl_input'],
+            "tgl_creat" => $post['tgl_input'],
         ];
         $this->db->set($data);
         $this->db->where('kode_barang', $post['kd_barang']);
@@ -100,16 +100,32 @@ class barang_m extends CI_Model
             "SELECT * FROM tb_barang WHERE kode_barang 
             NOT IN (SELECT kode_barang FROM tb_detail )"
         );
-        // $this->db->join('tb_kategori', 'tb_kategori.id_kategori=tb_barang.id_kategori');
+
         return $query->result();
     }
     public function grand_total()
     {
-        // $this->db->select('SUM(' . 'total' . ') as total');
-        // return $this->db->get();
+
         $query = $this->db->query(
             "SELECT * ,SUM(tb_barang.total) as tot FROM tb_barang WHERE kode_barang 
             NOT IN (SELECT kode_barang FROM tb_detail )"
+        );
+
+        return $query->row();
+    }
+
+    public function getCount()
+    {
+        $this->db->select('count(' . 'kode_barang' . ') as barang');
+        // $this->db->where($kondisi);
+        return $this->db->get('tb_barang')->row();
+    }
+
+    public function getId_count()
+    {
+        $query = $this->db->query(
+            "SELECT * ,Count(tb_barang.kode_barang) as jual FROM tb_barang WHERE kode_barang 
+            IN (SELECT kode_barang FROM tb_detail )"
         );
 
         return $query->row();

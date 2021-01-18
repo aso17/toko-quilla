@@ -50,6 +50,7 @@ class report extends CI_Controller
         $pdf->SetFont('Arial', 'B', 16);
         // mencetak string 
 
+        //$pdf->Image(190, 7, base_url() . 'assets/images/logo.png', 0, 1, 'L');
         $pdf->Cell(190, 7, 'Toko Quila', 0, 1, 'L');
         $pdf->SetFont('Arial', 'B', 8);
         $pdf->Cell(190, 7, 'Jl.Jl.kadu Rt/RW 001/002 kec.Curug Tangerang', 0, 1, 'L');
@@ -60,7 +61,7 @@ class report extends CI_Controller
         $pdf->Setfont('Arial', 'B', 9);
         $pdf->Cell(190, 7, 'Tanggal', 0, 1, 'C');
         $pdf->Cell(190, 7, $tgl_awal, 0, 1, 'C');
-        $pdf->Cell(190, 7, 's/d Tanggal', 0, 1, 'C');
+        $pdf->Cell(190, 7, 's/d', 0, 1, 'C');
         $pdf->Cell(190, 7, $tgl_ahir, 0, 1, 'C');
 
         $pdf->Cell(190, 7, 'Tanggal cetak :' . date('l/d/m/y'), 0, 1, 'c');
@@ -93,7 +94,7 @@ class report extends CI_Controller
             $pdf->Cell(30, 6, $row->id_transaksi, 1, 0);
             $pdf->Cell(30, 6, $row->kode_barang, 1, 0);
             $pdf->Cell(40, 6, $row->nama_barang, 1, 0);
-            $pdf->Cell(40, 6, $row->tgl_input, 1, 0);
+            $pdf->Cell(40, 6, date($row->tgl_input), 1, 0);
             $pdf->Cell(40, 6, 'Rp.' . number_format($row->total_harga), 1, 1);
         }
         $pdf->Cell(150, 6, 'Total Penjualan', 1, 0);
@@ -103,7 +104,8 @@ class report extends CI_Controller
     public function exportPdf()
     { {
             $this->load->library('pdf');
-            $pdf = new FPDF('l', 'mm', 'A4');
+            $pdf = new FPDF('l', 'mm', 'A5');
+            // FPDF->Image('path file', x, y, w, h);
             // membuat halaman baru
             $pdf->AliasNbPages();
             $pdf->AddPage();
@@ -121,6 +123,10 @@ class report extends CI_Controller
             $pdf->SetFont('Arial', 'B', 12);
 
             $pdf->SetFont('Arial', 'B', 12);
+            // $pdf = new FPDF();
+            // $pdf->AddPage(); 
+
+            // $pdf->Image(190, 7, 'assets/images/logo.png', 0, 1, 'L');
             $pdf->Cell(190, 7, ' LAPORAN Barang Belum Terjual', 0, 1, 'C');
             $pdf->Setfont('Arial', 'B', 11);
             $pdf->Cell(190, 7, 'Tanggal Cetak', 0, 1, 'C');

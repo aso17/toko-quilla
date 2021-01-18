@@ -68,7 +68,7 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-body">
+            <div class="modal-body bg-info">
                 <div class="row">
                     <div class="col-3 d-flex justify-content-center">
                         <i class="fa  fa-exclamation" style="font-size: 70px; color:red;"></i>
@@ -80,7 +80,7 @@
                 </div>
 
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer bg-info">
                 <button class="btn btn-default" type="button" data-dismiss="modal"> Batal</button>
                 <a id="btn-delete" class="btn btn-danger" href="#"> Hapus</a>
             </div>

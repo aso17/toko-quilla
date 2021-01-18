@@ -75,7 +75,7 @@
                                             data-merk="<?= $bar->merk ?>" data-stok="<?= $bar->jml_barang ?>"
                                             data-hrg_satuan="Rp.<?= number_format($bar->harga_satuan)  ?>"
                                             data-hrg_jual="Rp.<?= number_format($bar->harga_jual)  ?>"
-                                            data-tgl="<?= $bar->tgl_input ?>"><i class="fas fa-eye">
+                                            data-tgl="<?= $bar->tgl_creat ?>"><i class="fas fa-eye">
                                             </i></button>
 
                                         <a href="<?= base_url('databarang/edit/') . $bar->kode_barang ?>">
@@ -107,7 +107,7 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-body">
+            <div class="modal-body bg-info">
                 <div class="row">
                     <div class="col-3 d-flex justify-content-center">
                         <i class="fa  fa-exclamation" style="font-size: 70px; color:red;"></i>
@@ -119,7 +119,7 @@
                 </div>
 
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer bg-info">
                 <button class="btn btn-default" type="button" data-dismiss="modal"> Batal</button>
                 <a id="btn-delete" class="btn btn-danger" href="#"> Hapus</a>
             </div>

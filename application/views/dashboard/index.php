@@ -15,7 +15,7 @@
                                 <div class="info-box-content">
                                     <span class="info-box-text text-dark">Qty Product</span>
                                     <span class="info-box-number">
-                                        10
+                                        <?= $qty_product->barang; ?> item
 
                                     </span>
                                 </div>
@@ -31,7 +31,7 @@
 
                                 <div class="info-box-content">
                                     <span class="info-box-text text-dark">Category Pruduct</span>
-                                    <span class="info-box-number">41,410</span>
+                                    <span class="info-box-number"><?= $category->kat; ?> Category</span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -49,7 +49,7 @@
 
                                 <div class="info-box-content">
                                     <span class="info-box-text text-dark">Barang Terjual</span>
-                                    <span class="info-box-number mt-2">760</span>
+                                    <span class="info-box-number mt-2"><?= $terjual->jual; ?> item</span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -62,7 +62,7 @@
 
                                 <div class="info-box-content">
                                     <span class="info-box-text text-dark">Jumlah Pelangan</span>
-                                    <span class="info-box-number">2,000</span>
+                                    <span class="info-box-number"><?= $pelanggan->transaksi; ?> Pelanggan</span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>

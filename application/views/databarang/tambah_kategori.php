@@ -52,7 +52,7 @@
                         <button type="submit" name="submit" class="btn btn-outline-dark"><i class="fas fa-save "></i>
                             <span class="text-info font-weight-bold">Simpan</span>
                         </button>
-                        <a href="<?= base_url('databarang/kategori') ?>"> <button type="button"
+                        <a href="<?= base_url('kategori') ?>"> <button type="button"
                                 class="btn btn-outline-dark float-right"><span
                                     class="text-danger font-weight-bold">Kembali</span></button></a>
                     </div>

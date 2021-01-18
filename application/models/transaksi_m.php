@@ -38,4 +38,10 @@ class transaksi_m extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    public function getCount()
+    {
+        $this->db->select('count(' . 'id_transaksi' . ') as transaksi');
+
+        return $this->db->get('tb_transaksi')->row();
+    }
 }

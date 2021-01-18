@@ -31,6 +31,7 @@ class Penjualan extends CI_Controller
         $data['detail_transaksi'] = $this->detail_m->get_join('tb_detail', $kode['id_transaksi'])->result();
 
         $data['barang'] = $this->barang_m->get_limit();
+        // $data['id_user'] = $this->transaksi_m->getid();
         $this->templates->load('layout/template', 'penjualan/index', $data);
     }
 
@@ -75,10 +76,14 @@ class Penjualan extends CI_Controller
 
             if ($detail_penjualan == null) {
                 if ($stok > 3) {
-                    $this->session->set_flashdata('info', 'stok  awal tersisa' . ' ' . $stok);
+                    $stok1 = $stok;
+                    $stok2 = $stok1 - 1;
+                    $this->session->set_flashdata('info', 'stok   tersisa' . ' ' . $stok2);
+                    $this->session->unset_userdata('kode');
                     $this->detail_m->creat($kode_barang, $harga_jual, $id);
                 } else {
                     $this->detail_m->creat($kode_barang, $harga_jual, $id);
+
                     redirect('penjualan');
                 }
             } else {
@@ -102,7 +107,7 @@ class Penjualan extends CI_Controller
         $kondisi['kode_barang'] = $pecah[1];
 
         $this->detail_m->delete('tb_detail', $kondisi);
-        $this->session->set_flashdata('warning', ' Transaksi di batalkan');
+        $this->session->set_flashdata('warning', ' Transaksi di Batalkan');
         redirect('penjualan');
     }
 
@@ -113,6 +118,12 @@ class Penjualan extends CI_Controller
         $date = date('y-m-d h:i:s');
         $this->transaksi_m->creat($id, $sub, $date);
         $this->session->set_flashdata('success', 'pembayaran berhasil');
+        $dat = [
+            "kode" => "status"
+        ];
+        $this->session->set_userdata($dat);
+
+
         redirect('penjualan');
     }
 
@@ -165,7 +176,7 @@ class Penjualan extends CI_Controller
             $pdf->Cell(30, 6, $row->id_transaksi, 1, 0);
             $pdf->Cell(30, 6, $row->kode_barang, 1, 0);
             $pdf->Cell(40, 6, $row->nama_barang, 1, 0);
-            $pdf->Cell(40, 6, $row->tgl_input, 1, 0);
+            $pdf->Cell(40, 6, date("l/d/m/y"), 1, 0);
             $pdf->Cell(40, 6, 'Rp.' . number_format($row->total_harga), 1, 1);
         }
         $pdf->Cell(150, 6, 'Total Pembelian', 1, 0);

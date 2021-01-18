@@ -58,8 +58,8 @@
                                             </td>
                                             <td>
                                                 <a href="<?= base_url('penjualan/beli/') . $b->kode_barang ?>">
-                                                    <button class="btn btn-info btn-sm "><i
-                                                            class="fas fa-check-circle"></i>
+                                                    <button class="btn btn-info btn-sm "><i class="fas fa-check-circle"
+                                                            name="pilih"></i>
                                                         Pilih</button>
                                                 </a>
                                             </td>
@@ -151,11 +151,16 @@
                                         <?php $transaksi = $kode;
                                         $i = 1;
                                         $kode_transaksi = $transaksi - $i;
+
+                                        if ($this->session->userdata('kode')) {
+
                                         ?>
                                         <a href="<?= base_url('penjualan/print/') . $kode_transaksi ?>"> <button
                                                 class="btn btn-dark btn-lg float-right mr-4 mb-2 mt-2 " type="button"
                                                 target="_blank" name="button"><i class="fas fa-print"></i>
                                                 Print</button></a>
+
+                                        <?php } ?>
                                     </div>
                                 </div>
 
@@ -179,7 +184,7 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-body">
+            <div class="modal-body bg-info">
                 <div class="row">
                     <div class="col-3 d-flex justify-content-center">
                         <i class="fa  fa-exclamation-triangle" style="font-size: 70px; color:red;"></i>
@@ -191,7 +196,7 @@
                 </div>
 
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer bg-info">
                 <button class="btn btn-default" type="button" data-dismiss="modal"> Batal</button>
                 <a id="btn-delete" class="btn btn-danger" href="#"> Hapus</a>
             </div>

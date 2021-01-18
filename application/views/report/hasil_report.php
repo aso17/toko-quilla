@@ -73,7 +73,7 @@
                                 <td> <?= $lap->id_transaksi ?></td>
                                 <td> <?= $lap->kode_barang ?></td>
                                 <td> <?= $lap->nama_barang ?></td>
-                                <td><?= $lap->tgl_input ?></td>
+                                <td><?= date($lap->tgl_input) ?></td>
                                 <td>Rp.<?= number_format($lap->total_harga)  ?></td>
                             </tr>
                             <?php endforeach; ?>
