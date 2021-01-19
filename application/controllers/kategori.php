@@ -24,15 +24,30 @@ class kategori extends CI_Controller
         $validation->set_rules('tgl', 'Tanggal input', 'trim|required');
 
         if ($validation->run() == false) {
+            $data['judul'] = "Tambah kategori";
 
-
-            $this->templates->load('layout/template', 'databarang/tambah_kategori');
+            $this->templates->load('layout/template', 'databarang/form_kategori', $data);
         } else {
 
             $this->kategori_m->tambah();
             $this->session->set_flashdata('success', 'Kategori barang berhasil di tambah');
-            redirect('databarang/kategori');
+            redirect('kategori');
         }
+    }
+    public function ubah($id)
+    {
+        $data['judul'] = "ubah kategori";
+        $data['kategory'] = $this->kategori_m->getByid($id);
+        $this->templates->load('layout/template', 'databarang/form_kategori', $data);
+    }
+    public function editkategori()
+    {
+
+        $post = $this->input->post();
+        $this->kategori_m->update($post);
+        $this->session->set_flashdata('success', 'Kategori  berhasil di Ubah');
+
+        redirect('kategori', 'refresh');
     }
     public function delete($id)
     {

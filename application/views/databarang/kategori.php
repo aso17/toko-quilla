@@ -42,7 +42,7 @@
                                 <button class="btn btn-outline-danger btn-sm float-right "
                                     onclick="deleteConfirm('<?= base_url() . 'kategori/delete/' . $kate->id_kategori ?>')"><i
                                         class="fa fa-trash-alt">hapus</i></button>
-                                <a href="http://">
+                                <a href="<?= base_url('kategori/ubah/') . $kate->id_kategori ?>">
                                     <button class="btn btn-outline-info btn-sm float-right mr-2 "><i
                                             class="fas fa-edit">
                                             ubah</i></button>

@@ -119,55 +119,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('user') ?>"
-                                class="nav-link font-bold <?= $this->uri->segment(1) == 'databarang' ? 'active bg-danger' : '' ?> fst-normal text-light">
-                                <i class="fas fa-angle-left right"></i>
-                                <i class="fas fa-pager text-info"></i>
-                                <p>
-                                    Master
 
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="<?= base_url('databarang') ?>"
-                                        class="nav-link <?= $this->uri->segment(2) == 'daftarbarang/index' ? 'active bg-danger' : '' ?> font-bold  font-bold text-light"
-                                        class="nav-link">
-                                        <i class="fas fa-table text-info"></i>
-                                        <p>
-                                            Daftar Barang
-
-                                        </p>
-                                    </a>
-                                </li>
-
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="<?= base_url('kategori') ?>"
-                                        class="nav-link <?= $this->uri->segment(1) == 'kategori' ? 'active bg-danger' : '' ?> font-bold text-light"
-                                        class="nav-link">
-                                        <i class="fas fa-layer-group text-info"></i>
-                                        <p>Kategori Barang</p>
-                                    </a>
-                                </li>
-
-                            </ul>
-                            <?php if ($this->session->userdata('role') == "admin") { ?>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="<?= base_url('users') ?>"
-                                        class="nav-link  <?= $this->uri->segment(1) == 'users' ? 'active bg-danger' : '' ?> font-bold text-light"
-                                        class="nav-link  text-light ">
-                                        <i class="fas fa-user-tag text-info"></i>
-                                        <p>Users</p>
-                                    </a>
-                                </li>
-
-                            </ul>
-                            <?php } ?>
-                        </li>
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                             data-accordion="false">
 
@@ -182,6 +134,55 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             </a>
+                            <li class="nav-item">
+                                <a href="<?= base_url('user') ?>"
+                                    class="nav-link font-bold <?= $this->uri->segment(1) == 'databarang' ? 'active bg-danger' : '' ?> fst-normal text-light">
+                                    <i class="fas fa-angle-left right"></i>
+                                    <i class="fas fa-pager text-info"></i>
+                                    <p>
+                                        Master
+
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('databarang') ?>"
+                                            class="nav-link <?= $this->uri->segment(2) == 'daftarbarang/index' ? 'active bg-danger' : '' ?> font-bold  font-bold text-light"
+                                            class="nav-link">
+                                            <i class="fas fa-table text-info"></i>
+                                            <p>
+                                                Daftar Barang
+
+                                            </p>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('kategori') ?>"
+                                            class="nav-link <?= $this->uri->segment(1) == 'kategori' ? 'active bg-danger' : '' ?> font-bold text-light"
+                                            class="nav-link">
+                                            <i class="fas fa-layer-group text-info"></i>
+                                            <p>Kategori Barang</p>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <?php if ($this->session->userdata('role') == "admin") { ?>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="<?= base_url('users') ?>"
+                                            class="nav-link  <?= $this->uri->segment(1) == 'users' ? 'active bg-danger' : '' ?> font-bold text-light"
+                                            class="nav-link  text-light ">
+                                            <i class="fas fa-user-tag text-info"></i>
+                                            <p>Users</p>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <?php } ?>
+                            </li>
                             <li class="nav-item ">
                                 <a href="<?= base_url('report') ?>"
                                     class="nav-link <?= $this->uri->segment(1) == 'report' ? 'active bg-danger' : '' ?> font-bold text-light">
