@@ -221,9 +221,9 @@ $(function() {
 
     $("#barang").DataTable({
         "responsive": true,
-        "autoWidth": false,
+        "autoWidth": true,
         "info": true,
-        "lengthChange": false,
+        "lengthChange":false,
 
         "paging": true,
 

@@ -161,7 +161,7 @@
                             <div class="form-group">
                                 <label>*Tanggal Input</label>
                                 <input type="date" value="<?php if ($judul == "Ubah Data Barang") {
-                                                                echo $barang['tgl_input'];
+                                                                echo $barang['tgl_tambah'];
                                                             } ?>"
                                     class="form-control <?= form_error('tgl_input') ? 'is-invalid' : '' ?>"
                                     name="tgl_input" autocomplete="off">

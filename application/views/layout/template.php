@@ -266,7 +266,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 Anything you want
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2020-2021 <a href=" https://adminlte.io">A_so </a>. </strong> All rights reserved.
+            <strong>Copyright &copy; 2020-2021 <a href=" https://adminlte.io">Quilla </a>. </strong> All rights reserved.
         </footer>
     </div> <!-- ./wrapper -->
     <!-- Alert Config -->
