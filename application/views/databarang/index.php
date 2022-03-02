@@ -183,31 +183,31 @@
 </div>
 
 <script>
-$(document).ready(function() {
-    $(document).on('click', '#detail-barang', function() {
-        const kd = $(this).data('kode');
-        const nm = $(this).data('nama');
-        const kate = $(this).data('katego');
-        const size = $(this).data('ukuran');
-        const st = $(this).data('stok');
-        const h_satuan = $(this).data('hrg_satuan');
-        const jual = $(this).data('hrg_jual');
-        const inputan = $(this).data('tgl');
+    $(document).ready(function() {
+        $(document).on('click', '#detail-barang', function() {
+            const kd = $(this).data('kode');
+            const nm = $(this).data('nama');
+            const kate = $(this).data('katego');
+            const size = $(this).data('ukuran');
+            const st = $(this).data('stok');
+            const h_satuan = $(this).data('hrg_satuan');
+            const jual = $(this).data('hrg_jual');
+            const inputan = $(this).data('tgl');
 
-        $('#kode').text(kd);
+            $('#kode').text(kd);
 
-        $('#nm').text(nm);
-        //$('#tgl').text(tgllahir);
-        $('#categ').text(kate);
-        $('#s_ize').text(size);
-        $('#s_tok').text(st);
-        $('#satuan_harga').text(h_satuan);
-        $('#j_ual').text(jual);
-        $('#tgl_input').text(inputan);
+            $('#nm').text(nm);
+            //$('#tgl').text(tgllahir);
+            $('#categ').text(kate);
+            $('#s_ize').text(size);
+            $('#s_tok').text(st);
+            $('#satuan_harga').text(h_satuan);
+            $('#j_ual').text(jual);
+            $('#tgl_input').text(inputan);
 
 
+        })
     })
-})
 </script>
 <script type="text/javascript">
 function deleteConfirm(url) {
